@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   font-family: 'poppins';
@@ -34,5 +35,147 @@ code {
   gap:1rem;
  }
  a{
+  color: black;
+  font-size: 18px;
   text-decoration: none;
+  position:relative;
+  width:max-content;
  }
+ .sign{
+  background-color: blue;
+  color: white;
+  padding: 0.8rem;
+  font-size: 16px;
+  border-radius: 7px;
+ }
+ a::after{
+ content:'';
+ background-image:linear-gradient(to right,red,blue,green);
+ width:0;
+ height:4px;
+ position:absolute;
+ left: 0;
+ bottom: -1px;
+ border-radius: 250%;
+ text-decoration: underline;
+}
+a:hover::after{
+  width:100%;
+  transition:0.1s ease-in;
+}
+@media screen and (max-width:768px){
+  
+}
+/*                                                  Main.css                                                          */
+.main{
+  margin-top:1rem;
+  display: flex;
+  
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height:auto;
+  gap:1rem;
+  width:100%;
+}
+.greetings{
+  display: flex;
+  border-radius: 7px;
+  width:95%;
+  justify-content: center;
+  padding: 1rem;
+  gap:1rem;
+  align-items: center;
+  background-color: lightgreen;
+  
+  position: relative;
+  overflow: hidden;
+}
+.greetings::before{
+  content: '';
+  position: absolute;
+  background-image: url('./components/Home/bg.svg');
+  background-repeat:no-repeat;
+  height: 100%;
+  width:100%;
+  opacity: 0.3;
+  z-index: 0;
+}
+.greetings .image{
+  height:10rem;
+  margin-right: 3rem;
+}
+.objectives{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:1rem;
+}
+.image-obj {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-obj img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: contain;
+  opacity: 1;
+  animation: marquee 2s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(100%);
+    }
+    50% {
+      transform: translateX(0%); /* Slide to the center */
+    }
+    100% {
+      transform: translateX(-100%); 
+    }
+  }
+
+.image-obj img:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.image-obj img:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.image-obj img:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.image-obj img:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+.image-obj img:nth-child(5) {
+  animation-delay: 1s;
+}
+
+.image-obj img:nth-child(6) {
+  animation-delay: 1.2s;
+}
+
+@media (max-width: 768px) {
+  .image-obj img {
+    width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .image-obj img {
+    width: 100px;
+  }
+}
