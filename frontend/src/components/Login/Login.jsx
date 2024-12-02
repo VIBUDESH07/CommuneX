@@ -29,10 +29,13 @@ const Login = () => {
         <div className='split'>
             <img src={back}></img>
         </div>
-        <div className="login-input">
-          <form onSubmit={handleLoginSubmit}>
+        <div className='login-input2'>
+          <h1>Sign In</h1>
+          <form onSubmit={handleLoginSubmit} className="login-input">
             <div className="input-group">
-              <label htmlFor="email">Email:</label>
+              <label>
+                Email
+              </label>
               <input
                 type="text"
                 id="email"
@@ -43,7 +46,9 @@ const Login = () => {
             </div>
 
             <div className="input-group">
-              <label htmlFor="password">Password:</label>
+              <label>
+                Password
+              </label>
               <input
                 type="password"
                 id="password"
@@ -52,10 +57,15 @@ const Login = () => {
                 placeholder="Enter your password"
               />
             </div>
-
-            <button type="submit" className="login-btn">
+            <div className='log-sign'>   
+                       <button type="submit" className="login-btn">
               Login
             </button>
+                      or
+            <button type="submit" className='login-btn' style={{backgroundImage : "linear-gradient(to right,red,orange)"}}>
+              Sign Up
+            </button>
+            </div>
           </form>
         </div>
       </div>

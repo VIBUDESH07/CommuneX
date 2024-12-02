@@ -22,7 +22,7 @@ const Head = () => {
           <Link to="/login">
             <button className='sign'>Sign IN</button>
             </Link>
-            <Link to="/login">
+            <Link to="/signup">
             <button className='sign'>Sign Up</button>
             </Link>
         </div>
