@@ -19,8 +19,12 @@ const Head = () => {
           </Link>
         </div>
         <div className='btn'>
+          <Link to="/login">
             <button className='sign'>Sign IN</button>
-            <button className="sign">Sign Up</button>
+            </Link>
+            <Link to="/login">
+            <button className='sign'>Sign Up</button>
+            </Link>
         </div>
        </div>
     </div>

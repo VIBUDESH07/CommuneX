@@ -6,6 +6,7 @@ body {
 
 * {
   font-family: 'Poppins';
+  
 }
 
 code {
@@ -80,6 +81,7 @@ a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-image:linear-gradient(to right,white,lightyellow);
   height: auto;
   gap: 1rem;
   width: 100%;
@@ -119,12 +121,28 @@ a:hover {
   background-image: linear-gradient(to right, rgb(192, 192, 215), rgb(123, 207, 173));
   flex-direction: column;
   justify-content: center;
+  text-shadow: 0 0 12px #0044ff, 0 0 15px #ff0000;
   align-items: center;
   gap: 1rem;
   padding: 2rem;
   border-radius: 7px;
+  position:relative;
+  overflow:hidden;
 }
-
+.objectives::before{
+  content:'';
+  width: 100%;
+  height:100%;
+  position:absolute;
+ 
+ 
+  left:10%;
+  z-index:-6;
+  opacity:0.5;
+  background-image: url('./components/Home/services/arrow.png');
+  overflow:hidden;
+  background-repeat: no-repeat;
+}
 .objectives h3 {
   font-size: 30px;
   background-image: linear-gradient(to right, rgb(128, 30, 0), rgb(255, 12, 12));
@@ -385,6 +403,7 @@ h1{
   padding: 2rem;
   background-image: linear-gradient(to right,rgb(213, 239, 213),white);
   justify-content: center;
+  overflow: hidden;
   align-items: center;
 }
 .test-tit{
@@ -438,8 +457,10 @@ h1{
   color: brown;
   animation: glowingText 1.5s ease-in-out infinite alternate;
 }
+/*  CTA  */
 .cta{
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   background-image:linear-gradient(to right,white,rgb(192, 192, 227));
   width:100%;
@@ -454,6 +475,13 @@ h1{
   color: aliceblue;
   border-radius: 7px;
   padding: 1rem;
+}
+.c{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap:1rem;
+  align-items: center;
 }
 .cta-im{
   display: flex;
@@ -490,7 +518,7 @@ h1{
 .how-it-works{
   display: flex;
   flex-direction: column;
-  background-image: linear-gradient(white,rgb(216, 216, 127));
+  background-image: linear-gradient(white,rgb(240, 240, 221));
   width:100%;
   justify-content: center;
  align-items: center;
@@ -546,10 +574,10 @@ gap:1rem;
 .footer-links a:hover{
   color: black;
 }
+
 .blog-section{
   display: flex;
   flex-direction: column;
-  background-image: linear-gradient(white,rgb(173, 204, 173));
   width:100%;
   padding:2rem;
   justify-content: center;
@@ -563,6 +591,13 @@ gap:1rem;
   color:#7596ce;
   text-decoration: underline;
 }
+.blog-grid{
+  display:grid;
+
+  grid-template-columns: 1fr 2fr;
+  gap:1rem;
+}
+
 @keyframes glowingText {
   0% {
     text-shadow: 0 0 5px #00ff00, 0 0 10px #ff0000, 0 0 15px #00ff00;
@@ -626,4 +661,34 @@ gap:1rem;
 
 .scroll-animate.visible {
   opacity: 1;
+}
+
+/*                        Login.css                   */
+
+.login{
+  display: flex;
+  height:100%;
+}
+
+.login-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content:center;  
+  background-color: #00ff00;
+  justify-content: center;
+  padding:6.9rem;
+  overflow:hidden;
+}
+.split img{
+   height:150%;
+   width:100%;
+  
+}
+.login-input{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap:2rem;
 }

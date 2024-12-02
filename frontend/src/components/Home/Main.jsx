@@ -14,6 +14,8 @@ import hi from './services/giphy (1).webp'
 import send from './services/giphy (2).webp'
 import recv from './services/200.webp'
 import useScrollAnimations from './useScroll';
+import ne from './services/new.png';
+import arrow from './services/arrow.png'
 const Main = () => {
   useEffect(() => {
     // Dynamically add scroll-animate class to all sections
@@ -145,7 +147,11 @@ const Main = () => {
    <div className='cta-im'>
     <img src={send}></img>
     <div className='ct'>
+      <div className='c'>
+        <img src={arrow}></img>
         <h2>Ready to Make a Difference in Your Community?</h2>
+        <img src={arrow}></img>
+        </div>
         <p>Join us today and start sharing, supporting, and growing with your neighbors!</p>
         <button className="cta-btn">Sign Up Now</button>
         </div>
