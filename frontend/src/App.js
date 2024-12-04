@@ -7,7 +7,7 @@ import Signup from './components/Login/Signup';
 
 function App() {
   return (
-    <div className="App">
+    <div >
      <Routes>
      <Route path="/" element={<Layout/>}/>
      <Route path="/login" element={<Login/>}/>

@@ -18,7 +18,7 @@ const useScrollAnimations = () => {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.05 }
     );
 
     const elements = document.querySelectorAll('.scroll-animate');
