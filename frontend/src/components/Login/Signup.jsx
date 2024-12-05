@@ -3,7 +3,7 @@ import nel from './images/35231.jpg';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; // Import Toastify CSS
-
+import { Link } from 'react-router-dom';
 const Signup = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -82,8 +82,13 @@ const Signup = () => {
           </div>
           <button type="submit">Sign Up</button>
         </form>
+        <Link to="/login" className='login-sign-btn' style={{ backgroundImage: "linear-gradient(to right, red, orange)" }}>
+                
+                Go to Login
+              
+            </Link>
       </div>
-
+    
       
       <ToastContainer />
     </div>

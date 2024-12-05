@@ -28,7 +28,7 @@ const Login = () => {
      if(response.data.message=="Welcome Back!")
      {
       toast.success(response.data.message); 
-      navigate('/');  
+      navigate('/dash');  
      }
      else if(response.data.message=="Password Mismatched"){
       toast.error(response.data.message)
@@ -80,10 +80,10 @@ const Login = () => {
                 Login
               </button>
               or
-              <Link to="/signup" className='login-btn' style={{ backgroundImage: "linear-gradient(to right, red, orange)" }}>
-                <button type="button" >
+              <Link to="/signup" className='login-sign-btn' style={{ backgroundImage: "linear-gradient(to right, red, orange)" }}>
+                
                   Sign Up
-                </button>
+                
               </Link>
             </div>
           </form>
