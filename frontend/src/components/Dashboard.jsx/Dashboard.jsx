@@ -13,7 +13,7 @@ const Dashboard = () => {
         <Sidebar />
         <div className="dash-content">
           <Routes>
-            <Route path="/" element={<Content/>}/>
+            <Route path="/" element={<FriendChat/>}/>
           </Routes>
         </div>
       </div>

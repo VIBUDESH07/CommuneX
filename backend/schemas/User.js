@@ -4,7 +4,6 @@ const userSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
-   
   },
   email: {
     type: String,
@@ -17,42 +16,42 @@ const userSchema = new mongoose.Schema({
   },
   localCommunity: {
     type: String,
-    required: false, 
-    default: '',     
+    default: '', 
   },
   address: {
     type: String,
-    required: false, 
-    default: '',      
+    default: '',
   },
   contactNumber: {
     type: String,
-    required: false,  
-    default: '',   
+    default: '', 
   },
   profilePicture: {
     type: String,
-    default: '',  
+    default: '', 
   },
   skills: {
     type: [String], 
-    default: [],  
+    default: [], 
+  },
   resources: {
     type: [String], 
-    default: [],    
-  }},
+    default: [], 
+  },
+  friends: [
+    {
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: 'User', 
+    },
+  ],
   role: {
-    type: String, 
+    type: String,
+    enum: ['user', 'admin'], // Restrict to 'user' or 'admin'
     default: 'user',
   },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-  updatedAt: {
-    type: Date,
-    default: Date.now,
-  },
+}, 
+{
+  timestamps: true, // Automatically add createdAt and updatedAt fields
 });
 
 module.exports = mongoose.model('User', userSchema);

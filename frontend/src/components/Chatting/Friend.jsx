@@ -7,7 +7,6 @@ const FriendChat = () => {
   ]);
   const [newMessage, setNewMessage] = useState('');
 
-  // Function to handle sending new message
   const handleSendMessage = () => {
     if (newMessage.trim()) {
       setMessages([
@@ -20,9 +19,8 @@ const FriendChat = () => {
 
   return (
     <div className="chat-container">
-      <h2>Friend's Chat</h2>
+      <h2>SkyConnect</h2>
 
-      {/* Display chat messages */}
       <div className="messages">
         {messages.map((message) => (
           <div
@@ -35,7 +33,7 @@ const FriendChat = () => {
         ))}
       </div>
 
-      {/* Message input and send button */}
+
       <div className="message-input">
         <input
           type="text"
