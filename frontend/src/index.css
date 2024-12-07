@@ -1179,7 +1179,7 @@ h2 {
 .com-div {
   display: flex;
   flex-direction: column;
-  padding: 3rem;
+  padding:1rem;
   gap:2rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
@@ -1222,7 +1222,7 @@ h2 {
   padding: 0.8rem;
 }
 .com-input option{
-  
+
   padding: 0.1rem;
   
   gap:1rem;

@@ -174,7 +174,6 @@ const localCommunityMap = {
   },
 };
 
-
 const CompleteSignup = () => {
   const [formData, setFormData] = useState({
     state: 'Tamil Nadu',
@@ -185,6 +184,9 @@ const CompleteSignup = () => {
     address: '',
     localCommunity: '',
     contactNumber: '',
+    skills: [],
+    resources: [],
+    profilePicture: '',
   });
 
   const [talukOptions, setTalukOptions] = useState([]);
@@ -266,13 +268,11 @@ const CompleteSignup = () => {
 
   return (
     <div className="com-div">
-    <h2>Complete Your Signup</h2>
-    <form onSubmit={handleSubmit} className="signup-form">
-      
-      <div className="com-input">
-        <label>
-          State:
-          </label>
+      <h2>Complete Your Signup</h2>
+      <form onSubmit={handleSubmit} className="signup-form">
+        {/* State field */}
+        <div className="com-input">
+          <label>State:</label>
           <input
             type="text"
             name="state"
@@ -280,13 +280,11 @@ const CompleteSignup = () => {
             readOnly
             className="form-input"
           />
-       
-      </div>
-  
-      <div className="com-input">
-        <label>
-          District:
-          </label>
+        </div>
+
+        {/* District field */}
+        <div className="com-input">
+          <label>District:</label>
           <input
             type="text"
             name="district"
@@ -295,13 +293,11 @@ const CompleteSignup = () => {
             required
             className="form-input"
           />
-       
-      </div>
-  
-      <div className="com-input">
-        <label>
-          Taluk:
-          </label>
+        </div>
+
+        {/* Taluk field */}
+        <div className="com-input">
+          <label>Taluk:</label>
           <select
             name="taluk"
             value={formData.taluk}
@@ -316,13 +312,11 @@ const CompleteSignup = () => {
               </option>
             ))}
           </select>
-        
-      </div>
-  
-      <div className="com-input">
-        <label>
-          Area:
-          </label>
+        </div>
+
+        {/* Area field */}
+        <div className="com-input">
+          <label>Area:</label>
           <select
             name="area"
             value={formData.area}
@@ -337,13 +331,11 @@ const CompleteSignup = () => {
               </option>
             ))}
           </select>
-      
-      </div>
-  
-      <div className="com-input">
-        <label>
-          Community:
-          </label>
+        </div>
+
+        {/* Community field */}
+        <div className="com-input">
+          <label>Community:</label>
           <select
             name="localCommunity"
             value={formData.localCommunity}
@@ -358,13 +350,11 @@ const CompleteSignup = () => {
               </option>
             ))}
           </select>
-       
-      </div>
-  
-      <div className="com-input">
-        <label>
-          Pincode:
-          </label>
+        </div>
+
+        {/* Pincode field */}
+        <div className="com-input">
+          <label>Pincode:</label>
           <input
             type="text"
             name="pincode"
@@ -373,26 +363,22 @@ const CompleteSignup = () => {
             required
             className="form-input"
           />
-        
-      </div>
-  
-      <div className="com-input">
-        <label>
-          Address:
-          </label>
+        </div>
+
+        {/* Address field */}
+        <div className="com-input">
+          <label>Address:</label>
           <textarea
             name="address"
             value={formData.address}
             readOnly
             className="form-input"
           />
-        
-      </div>
-  
-      <div className="com-input">
-        <label>
-          Contact Number:
-          </label>
+        </div>
+
+        {/* Contact Number field */}
+        <div className="com-input">
+          <label>Contact Number:</label>
           <input
             type="tel"
             name="contactNumber"
@@ -401,15 +387,37 @@ const CompleteSignup = () => {
             required
             className="form-input"
           />
-       
-      </div>
+        </div>
+
+        {/* Skills field */}
+        <div className="com-input">
+          <label>Skills:</label>
+          <input
+            type="text"
+            name="skills"
+            value={formData.skills.join(', ')}
+            onChange={handleChange}
+            className="form-input"
+          />
+        </div>  
+        {/* Profile Picture field */}
+        <div className="com-input">
+          <label>Profile Picture (URL):</label>
+          <input
+            type="text"
+            name="profilePicture"
+            value={formData.profilePicture}
+            onChange={handleChange}
+            className="form-input"
+          />
+        </div>
+
+     
       </form>
       <button type="submit" className="submit-button">
-        Complete Signup
-      </button>
-    
-  </div>
-  
+          Complete Signup
+        </button>
+    </div>
   );
 };
 
