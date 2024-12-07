@@ -1171,3 +1171,102 @@ h2 {
   background-color: #45a049;
 }
  /*                  Community Chat .jsx                  */
+
+
+ /*                    Complete */
+
+
+.com-div {
+  display: flex;
+  flex-direction: column;
+
+ 
+  padding: 3rem;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+}
+
+.form-header {
+  text-align: center;
+  color: #4e4caf;
+  margin-bottom: 20px;
+}
+
+.signup-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(500px,1fr));
+  gap: 1rem;
+}
+
+.form-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-input,
+.form-textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 80%;
+}
+
+.form-textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+.file-input {
+  padding: 5px;
+}
+
+.submit-button {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
+
+/* Profile Image Preview */
+.profile-preview {
+  margin-top: 10px;
+  width: 100px;
+  border-radius: 5px;
+}
+
+/* Responsiveness */
+@media screen and (max-width: 600px) {
+  .com-div {
+    margin: 20px;
+    padding: 15px;
+  }
+
+  .signup-form {
+    gap: 10px;
+  }
+
+  .form-label {
+    font-size: 14px;
+  }
+
+  .form-input,
+  .form-textarea {
+    font-size: 14px;
+  }
+
+  .submit-button {
+    font-size: 14px;
+  }
+}
