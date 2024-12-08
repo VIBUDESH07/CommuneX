@@ -185,7 +185,6 @@ const CompleteSignup = () => {
     localCommunity: '',
     contactNumber: '',
     skills: [],
-    resources: [],
     profilePicture: '',
   });
 
