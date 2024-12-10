@@ -4,7 +4,6 @@ This platform is designed to help people engage with their local communities or 
 
 ### *Key Use Cases*
 
-#### 1. *Resource Sharing*
    *Use Case: Lending and Borrowing Everyday Items*
    - *Scenario*: Emma recently moved to a new city and needs a ladder to hang pictures in her apartment. Instead of buying a new one, she searches the platform to find a neighbor who has a ladder available to borrow.
    - *How it works*: 
@@ -12,7 +11,7 @@ This platform is designed to help people engage with their local communities or 
      - Items are categorized (e.g., household, tools, electronics), and users can communicate via the platform to arrange lending/borrowing.
    - *Why it’s useful*: Saves money, promotes sustainability, and reduces waste by reusing resources instead of buying new ones.
 
-#### 2. *Skill Exchange*
+
    *Use Case: Bartering Skills for Services*
    - *Scenario*: Raj is a software developer and needs help with his car repair. Sarah is a mechanic who needs help with learning coding. They both use the platform to exchange their skills.
    - *How it works*:
@@ -20,7 +19,7 @@ This platform is designed to help people engage with their local communities or 
      - The platform helps match users who are looking for skill exchanges.
    - *Why it’s useful*: Encourages a barter system where people can exchange skills or services without monetary exchange, reducing the cost of services.
 
-#### 3. *Local Support Networks*
+
    *Use Case: Asking for Help*
    - *Scenario*: Janet, an elderly woman, needs help carrying groceries up to her apartment. She posts a request for assistance on the platform, and a nearby user, Tom, offers his help.
    - *How it works*:
@@ -28,7 +27,7 @@ This platform is designed to help people engage with their local communities or 
      - Local members receive notifications and can offer help directly via the platform.
    - *Why it’s useful*: Creates a community of support, especially for vulnerable individuals, such as the elderly or people with disabilities.
 
-#### 4. *Community Events and Activities*
+
    *Use Case: Organizing a Neighborhood Cleanup*
    - *Scenario*: In a local neighborhood, a group of residents organizes a cleanup event in a nearby park. They create an event on the platform where others in the community can join.
    - *How it works*:
