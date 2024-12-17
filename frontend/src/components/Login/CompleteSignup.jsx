@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect} from 'react';
 import axios from 'axios';
 
 const localCommunityMap = {
@@ -186,8 +186,12 @@ const CompleteSignup = () => {
     contactNumber: '',
     skills: [],
     profilePicture: '',
+    username: '',
   });
-
+  useEffect(() => {
+    const username = localStorage.getItem('username') || '';
+    setFormData((prevData) => ({ ...prevData, username }));
+  }, []);
   const [talukOptions, setTalukOptions] = useState([]);
   const [areaOptions, setAreaOptions] = useState([]);
   const [communityOptions, setCommunityOptions] = useState([]);
@@ -258,13 +262,13 @@ const CompleteSignup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/signup', formData);
+      const response = await axios.post('/api/complete', formData);
       console.log('Signup Success:', response.data);
     } catch (error) {
       console.error('Signup Error:', error);
     }
   };
-
+  
   return (
     <div className="com-div">
       <h2>Complete Your Signup</h2>

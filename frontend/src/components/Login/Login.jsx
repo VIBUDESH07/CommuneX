@@ -28,6 +28,9 @@ const Login = () => {
      if(response.data.message=="Welcome Back!")
      {
       toast.success(response.data.message); 
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("username", email);
+      
       navigate('/dash');  
      }
      else if(response.data.message=="Password Mismatched"){

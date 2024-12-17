@@ -64,3 +64,52 @@ exports.login = async (req, res) => {
     res.status(500).json({ message: 'Server Error, Please try again later' });
   }
 };
+exports.complete=async(req,res)=>{
+  try {
+    const {
+      username,
+      state,
+      district,
+      taluk,
+      area,
+      pincode,
+      address,
+      localCommunity,
+      contactNumber,
+      skills,
+      profilePicture,
+    } = req.body;
+
+    console.log(username)
+    if (!username || !district || !taluk || !area || !pincode || !localCommunity) {
+      return res.status(400).json({ error: 'Missing required fields' });
+    }
+
+  
+    const user = await User.findOne({ username });
+
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    // Update user details
+    user.state = state || user.state;
+    user.district = district || user.district;
+    user.taluk = taluk || user.taluk;
+    user.area = area || user.area;
+    user.pincode = pincode || user.pincode;
+    user.address = address || user.address;
+    user.localCommunity = localCommunity || user.localCommunity;
+    user.contactNumber = contactNumber || user.contactNumber;
+    user.skills = skills || user.skills;
+    user.profilePicture = profilePicture || user.profilePicture;
+
+    // Save the updated user document
+    await user.save();
+
+    res.status(200).json({ message: 'User details updated successfully', user });
+  } catch (error) {
+    console.error('Error during update:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+}

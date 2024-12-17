@@ -126,10 +126,9 @@ code {
 
 .objectives {
   display: flex;
-  background-image: linear-gradient(to right, rgb(192, 192, 215), rgb(123, 207, 173));
+  background-image: linear-gradient( rgb(224, 224, 231), rgb(201, 227, 216));
   flex-direction: column;
   justify-content: center;
-  text-shadow: 0 0 12px #0044ff, 0 0 15px #ff0000;
   align-items: center;
   gap: 1rem;
   padding: 2rem;
