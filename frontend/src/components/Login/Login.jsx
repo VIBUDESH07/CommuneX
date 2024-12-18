@@ -30,8 +30,13 @@ const Login = () => {
       toast.success(response.data.message); 
       localStorage.setItem("isLoggedIn", "true");
       localStorage.setItem("username", email);
-      
-      navigate('/dash');  
+      const checkResponse = await axios.post("http://localhost:5000/api/check_complete", { email });
+      if (checkResponse.data.isComplete) {
+        navigate('/dash');  
+      } else {
+        toast.info("Please complete your profile.");
+        navigate('/complete'); 
+      } 
      }
      else if(response.data.message=="Password Mismatched"){
       toast.error(response.data.message)

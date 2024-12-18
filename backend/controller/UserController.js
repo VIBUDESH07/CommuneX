@@ -79,25 +79,20 @@ exports.complete=async(req,res)=>{
       skills,
       profilePicture,
     } = req.body;
-
+   const email=username;
     console.log(username)
     if (!username || !district || !taluk || !area || !pincode || !localCommunity) {
       return res.status(400).json({ error: 'Missing required fields' });
     }
 
   
-    const user = await User.findOne({ username });
-
+    const user = await User.findOne({ email});
+    console.log(user)
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
 
     // Update user details
-    user.state = state || user.state;
-    user.district = district || user.district;
-    user.taluk = taluk || user.taluk;
-    user.area = area || user.area;
-    user.pincode = pincode || user.pincode;
     user.address = address || user.address;
     user.localCommunity = localCommunity || user.localCommunity;
     user.contactNumber = contactNumber || user.contactNumber;
@@ -111,5 +106,46 @@ exports.complete=async(req,res)=>{
   } catch (error) {
     console.error('Error during update:', error);
     res.status(500).json({ error: 'Internal Server Error' });
+  }
+}
+
+exports.check=async(req,res)=>{
+  const { email } = req.body;
+
+  try {
+    // Find user by email
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    const fieldsToCheck = [
+      'localCommunity',
+      'address',
+      'contactNumber',
+      'profilePicture',
+      'skills',
+    ];
+
+    const incompleteFields = fieldsToCheck.filter((field) => {
+      if (field === 'skills') {
+        return !user[field] || user[field].length === 0;
+      }
+      return !user[field];
+    });
+
+    if (incompleteFields.length > 0) {
+      return res.status(200).json({
+        isComplete: false,
+        message: 'Profile is incomplete',
+        incompleteFields, 
+      });
+    }
+
+    res.status(200).json({ isComplete: true, message: 'Profile is complete' });
+  } catch (error) {
+    console.error('Error checking profile completion:', error);
+    res.status(500).json({ message: 'Internal server error' });
   }
 }

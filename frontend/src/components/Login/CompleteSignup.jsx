@@ -1,5 +1,7 @@
 import React, { useState,useEffect} from 'react';
 import axios from 'axios';
+import { toast,ToastContainer } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const localCommunityMap = {
   Chennai: {
@@ -175,6 +177,7 @@ const localCommunityMap = {
 };
 
 const CompleteSignup = () => {
+  const navigate=useNavigate();
   const [formData, setFormData] = useState({
     state: 'Tamil Nadu',
     district: '',
@@ -262,10 +265,12 @@ const CompleteSignup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/complete', formData);
-      console.log('Signup Success:', response.data);
+      console.log(formData)
+      const response = await axios.post('http://localhost:5000/api/complete', formData);
+      toast.success('Signup Success');
+      navigate('/login');
     } catch (error) {
-      console.error('Signup Error:', error);
+      toast.error('Signup Error');
     }
   };
   
@@ -284,7 +289,7 @@ const CompleteSignup = () => {
             className="form-input"
           />
         </div>
-
+  
         {/* District field */}
         <div className="com-input">
           <label>District:</label>
@@ -297,7 +302,7 @@ const CompleteSignup = () => {
             className="form-input"
           />
         </div>
-
+  
         {/* Taluk field */}
         <div className="com-input">
           <label>Taluk:</label>
@@ -316,7 +321,7 @@ const CompleteSignup = () => {
             ))}
           </select>
         </div>
-
+  
         {/* Area field */}
         <div className="com-input">
           <label>Area:</label>
@@ -335,7 +340,7 @@ const CompleteSignup = () => {
             ))}
           </select>
         </div>
-
+  
         {/* Community field */}
         <div className="com-input">
           <label>Community:</label>
@@ -354,7 +359,7 @@ const CompleteSignup = () => {
             ))}
           </select>
         </div>
-
+  
         {/* Pincode field */}
         <div className="com-input">
           <label>Pincode:</label>
@@ -367,7 +372,7 @@ const CompleteSignup = () => {
             className="form-input"
           />
         </div>
-
+  
         {/* Address field */}
         <div className="com-input">
           <label>Address:</label>
@@ -378,7 +383,7 @@ const CompleteSignup = () => {
             className="form-input"
           />
         </div>
-
+  
         {/* Contact Number field */}
         <div className="com-input">
           <label>Contact Number:</label>
@@ -391,19 +396,25 @@ const CompleteSignup = () => {
             className="form-input"
           />
         </div>
-
-        {/* Skills field */}
+  
         <div className="com-input">
           <label>Skills:</label>
           <input
             type="text"
             name="skills"
+            placeholder="Enter skills separated by commas"
             value={formData.skills.join(', ')}
-            onChange={handleChange}
+            onChange={(e) => {
+              const skills = e.target.value
+                .split(',')
+                .map((skill) => skill.trim())
+                .filter((skill) => skill !== ''); // Avoid empty skills
+              setFormData((prevData) => ({ ...prevData, skills }));
+            }}
             className="form-input"
           />
-        </div>  
-        {/* Profile Picture field */}
+        </div>
+  
         <div className="com-input">
           <label>Profile Picture (URL):</label>
           <input
@@ -414,14 +425,16 @@ const CompleteSignup = () => {
             className="form-input"
           />
         </div>
-
-     
-      </form>
-      <button type="submit" className="submit-button">
+  
+        {/* Submit button */}
+        <button type="submit" className="submit-button">
           Complete Signup
         </button>
+      </form>
+      <ToastContainer/>
     </div>
   );
+  
 };
 
 export default CompleteSignup;
