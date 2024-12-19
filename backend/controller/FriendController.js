@@ -1,26 +1,33 @@
 const User = require('../schemas/User'); 
 
 exports.getFriends = async (req, res) => {
-  const username = req.query.username; 
-  if (!username) {
-    return res.status(400).json({ error: 'Username (email) is required' });
-  }
-  try {
-    const user = await User.findOne({ email: username }).populate(
-      'friends',
-      'username email profilePicture'
-    );
-    console.log(user)
-
-    if (!user) {
-      return res.status(404).json({ error: 'User not found' });
-    }
-
-    res.json(user.friends);
-  } catch (error) {
-    console.error('Error fetching friends:', error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
+        const { username } = req.query;
+        if (!username) {
+          return res.status(400).json({ error: 'Username is required.' });
+        }
+       
+        try {
+          const user = await User.findOne({ email:username });
+          if (!user) {
+            return res.status(404).json({ error: 'User not found.' });
+          }
+      
+          // Fetch friend details (assuming friend IDs are stored in user.friends)
+          const friends = await User.find({ _id: { $in: user.friends } });
+      
+          // Prepare the response with full details of both user and friends
+          const response = {
+            user: user.toObject(), // This will return all the user fields
+            friends: friends.map(friend => friend.toObject()) // This will return all the fields of each friend
+          };
+      
+          res.json(response);
+        } catch (error) {
+          console.error('Error fetching friends:', error);
+          res.status(500).json({ error: 'Server error.' });
+        }
+      
+      
 };
 
 exports.addFriend = async (req, res) => {
@@ -72,4 +79,12 @@ exports.getCommunityUsers = async (req, res) => {
       res.status(500).json({ message: 'Error fetching community users', error });
     }
   };
-  
+  exports.getAllUsers = async (req, res) => {
+    try {
+      const users = await User.find({}, 'username email localCommunity'); // Include the desired fields
+      res.status(200).json(users);
+    } catch (error) {
+      console.error('Error fetching users:', error);
+      res.status(500).json({ message: 'Failed to retrieve users.' });
+    }
+  };

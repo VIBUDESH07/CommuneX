@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const SelectFriend = () => {
   const [friends, setFriends] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const [user,setUser]=useState(null);
   const username = localStorage.getItem('username'); // Corrected key
-
+ const navigate = useNavigate();
   // Fetch friends from the database on component mount
   useEffect(() => {
     const fetchFriends = async () => {
@@ -15,7 +16,11 @@ const SelectFriend = () => {
         const response = await axios.get(
           `http://localhost:5000/fri/friends?username=${username}` // Corrected URL
         );
-        setFriends(response.data);
+       
+        setFriends(response.data.friends);
+        setUser(response.data.user)
+        console.log(user)
+        console.log(friends)
       } catch (error) {
         console.error('Error fetching friends:', error);
       } finally {
@@ -29,21 +34,10 @@ const SelectFriend = () => {
       console.error('Username is not found in localStorage.');
     }
   }, [username]);
-
-  const addFriend = async () => {
-    const friendEmail = prompt('Enter the email of the new friend:');
-    if (friendEmail) {
-      try {
-        const response = await axios.post('http://localhost:5000/fri/friends', {
-          username, // User's email from localStorage
-          friendEmail, // New friend's email
-        });
-        setFriends([...friends, response.data]); // Add new friend to the state
-      } catch (error) {
-        console.error('Error adding a friend:', error);
-      }
-    }
-  };
+  
+ const addFriend =() =>{
+        navigate('/dash/add' ,{state:{user}})
+ }
 
   return (
     <div className="add-friend">

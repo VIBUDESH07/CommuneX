@@ -5,6 +5,7 @@ import Content from './Content';
 import Login from '../Login/Login';
 import FriendChat from '../Chatting/Friend';
 import SelectFriend from '../Chatting/SelectFriend';
+import AddFriend from '../Login/Addfriend';
 
 
 
@@ -17,6 +18,7 @@ const Dashboard = () => {
           <Routes>
             <Route path="/" element={<Content/>}/>
             <Route path="/friend" element={<SelectFriend/>}/>
+            <Route path="/add" element={<AddFriend/>}/>
           </Routes>
         </div>
       </div>
