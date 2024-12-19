@@ -176,6 +176,7 @@ const localCommunityMap = {
   },
 };
 
+
 const CompleteSignup = () => {
   const navigate=useNavigate();
   const [formData, setFormData] = useState({

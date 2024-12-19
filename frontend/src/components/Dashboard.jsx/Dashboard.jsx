@@ -4,6 +4,7 @@ import Sidebar from './Sidebar';
 import Content from './Content';
 import Login from '../Login/Login';
 import FriendChat from '../Chatting/Friend';
+import SelectFriend from '../Chatting/SelectFriend';
 
 
 const Dashboard = () => {
@@ -13,7 +14,8 @@ const Dashboard = () => {
         <Sidebar />
         <div className="dash-content">
           <Routes>
-            <Route path="/" element={<FriendChat/>}/>
+            <Route path="/" element={<Content/>}/>
+            <Route path="/friend" element={<SelectFriend/>}/>
           </Routes>
         </div>
       </div>

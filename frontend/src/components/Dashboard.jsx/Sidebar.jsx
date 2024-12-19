@@ -9,7 +9,7 @@ const Sidebar = () => {
        <h1> SkyConnect </h1>
       </div>
       <div className='side-bar'>
-        <Link to="/dash">
+        <Link to="/dash/friend">
         <div className='sidebar-con'>
           <FaUserFriends />
           Friends
