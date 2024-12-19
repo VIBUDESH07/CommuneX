@@ -6,11 +6,15 @@ const SelectFriend = () => {
   const [friends, setFriends] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const username = localStorage.getItem('username'); // Corrected key
+
   // Fetch friends from the database on component mount
   useEffect(() => {
     const fetchFriends = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/fri/friends'); // Replace with your actual API endpoint
+        const response = await axios.get(
+          `http://localhost:5000/fri/friends?username=${username}` // Corrected URL
+        );
         setFriends(response.data);
       } catch (error) {
         console.error('Error fetching friends:', error);
@@ -19,15 +23,22 @@ const SelectFriend = () => {
       }
     };
 
-    fetchFriends();
-  }, []);
+    if (username) {
+      fetchFriends();
+    } else {
+      console.error('Username is not found in localStorage.');
+    }
+  }, [username]);
 
   const addFriend = async () => {
-    const newFriendName = prompt('Enter the name of the new friend:');
-    if (newFriendName) {
+    const friendEmail = prompt('Enter the email of the new friend:');
+    if (friendEmail) {
       try {
-        const response = await axios.post('http://localhost:5000/fri/addfriend', { name: newFriendName }); // Replace with your actual API endpoint
-        setFriends([...friends, response.data]);
+        const response = await axios.post('http://localhost:5000/fri/friends', {
+          username, // User's email from localStorage
+          friendEmail, // New friend's email
+        });
+        setFriends([...friends, response.data]); // Add new friend to the state
       } catch (error) {
         console.error('Error adding a friend:', error);
       }
@@ -42,8 +53,8 @@ const SelectFriend = () => {
       ) : friends.length > 0 ? (
         <ul className="friend-list">
           {friends.map((friend) => (
-            <li key={friend.id} className="friend-item">
-              <span>{friend.name}</span>
+            <li key={friend._id} className="friend-item">
+              <span>{friend.username}</span>
             </li>
           ))}
         </ul>

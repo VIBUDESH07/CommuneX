@@ -5,12 +5,12 @@ exports.getFriends = async (req, res) => {
   if (!username) {
     return res.status(400).json({ error: 'Username (email) is required' });
   }
-
   try {
     const user = await User.findOne({ email: username }).populate(
       'friends',
       'username email profilePicture'
     );
+    console.log(user)
 
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
@@ -51,3 +51,25 @@ exports.addFriend = async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 };
+// In your friendController.js
+exports.getCommunityUsers = async (req, res) => {
+    try {
+      const { username } = req.query;
+  
+      // Find the current user
+      const currentUser = await User.findOne({ email: username });
+      if (!currentUser) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+  
+      const users = await User.find({
+        localCommunity: currentUser.localCommunity,
+        _id: { $ne: currentUser._id, $nin: currentUser.friends },
+      }).select('username email');
+  
+      res.json(users);
+    } catch (error) {
+      res.status(500).json({ message: 'Error fetching community users', error });
+    }
+  };
+  
