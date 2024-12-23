@@ -59,17 +59,16 @@ const Main = () => {
         <h3>Services</h3><img src={der}></img>
         </div>
         <div className='ser-rem'>
-          <div>
-            <img src={hand} alt="Hand Illustration" />
-          </div>
-
+    
           <div className='ser-tot'>
-            <div className='ser-card'>
+            <div className='ser-card1'>
+            <div className='ser-card1-desc'>
               <h1>Resource Sharing</h1>
               <p>
-                Easily lend or borrow everyday items within your local community to reduce waste and save money. From tools to appliances, it’s a sustainable way to meet your needs without buying new items.
-              </p>
-              <p>Saves money, reduces waste, and promotes sustainability.</p>
+                Easily lend or borrow everyday. From tools to appliances, it’s a sustainable way to meet your needs without buying new items.
+              </p >
+              <p className='ser-card1-main'>Saves money, reduces waste, and promotes sustainability.</p>
+            </div>
             </div>
 
             <div className='ser-card2'>
