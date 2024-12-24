@@ -87,6 +87,7 @@ code {
 .greetings {
   display: flex;
   border-radius: 7px;
+  flex-direction: column;
   width: 95%;
   justify-content: center;
   padding: 1rem;
@@ -115,15 +116,15 @@ code {
 
 .objectives {
   display: flex;
-  width:70%;
-  background-image: linear-gradient(to top right,rgb(71, 71, 225), rgb(224, 224, 231), rgb(109, 228, 218));
+  width:95%;
+  background-image: linear-gradient(to top right,rgb(93, 93, 201), rgb(224, 224, 231), rgb(158, 227, 221));
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 0.1rem;
-  margin: 1rem 4rem;
+  margin:1rem;
   padding: 2rem;
-  border-radius: 50px;
+  border-radius: 7px;
   position:relative;
   overflow:hidden;
 }
@@ -171,36 +172,29 @@ code {
   justify-content: center;
   align-items: center;
 }
-
-.ser-tit {
-  display: flex;
-  width: 100%;
-  justify-content: space-evenly;
-  align-items: center;
+.ser-tit{
+ display:flex;
+ flex-direction: row;
+ align-items: center;
+ justify-content: center;
+ gap:8rem;
+ 
+}
+.ser-tit img{
+  height:80px;
 }
 
-.ser-tit img {
-  height: 80px;
-  border-radius: 7px;
-}
 
 .ser-rem {
   display: flex;
   z-index: -3;
-  gap: 2rem;
   width:100%;
+  flex-direction: column;
   align-items: center;
   padding: 1rem;
 }
 
-.ser-tot {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-}
+
 
 .ser-rem img{
   height:400px;
@@ -215,21 +209,107 @@ code {
 .ser-card1{
   display:grid;
   grid-template-columns:1fr 1fr;
-  background-image: linear-gradient(to bottom right,rgb(161, 208, 161),rgb(146, 146, 209),rgb(244, 185, 185));
+  background-image: linear-gradient(to top right,skyblue,rgb(195, 195, 249),white);
+
 }
 .ser-card1 h1{
-  color:blue
+  color:blue;
+
 }
 .ser-card1-desc{
   display:flex;
   padding:3rem;
   flex-direction: column;
-  background-color: #005eff;
   align-items: center;
   justify-content: center;
 }
 .ser-card1-main{
   
+}
+.ser-card2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  background-image: linear-gradient(to top right,white,skyblue);
+
+}
+.ser-card2 h1{
+  color:blue;
+
+}
+.ser-card2-desc{
+  display:flex;
+  padding:3rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.ser-card3{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  background-image: linear-gradient(to top right,white,skyblue);
+
+}
+.ser-card3 h1{
+  color:blue;
+
+}
+.ser-card3-desc{
+  display:flex;
+  padding:3rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.ser-card4{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  background-image: linear-gradient(to top right,white,skyblue);
+
+}
+.ser-card4 h1{
+  color:blue;
+
+}
+.ser-card4-desc{
+  display:flex;
+  padding:3rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.ser-card5{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  background-image: linear-gradient(to top right,white,skyblue);
+
+}
+.ser-card5 h1{
+  color:blue;
+
+}
+.ser-card5-desc{
+  display:flex;
+  padding:3rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.ser-card6{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  background-image: linear-gradient(to top right,white,skyblue);
+
+}
+.ser-card6 h1{
+  color:blue;
+
+}
+.ser-card6-desc{
+  display:flex;
+  padding:3rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 /* Testimonials Section */
 .testimonials {

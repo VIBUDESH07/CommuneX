@@ -32,13 +32,11 @@ const Main = () => {
       {/* Greetings Section */}
       <div className="greetings">
         <div>
-          <h2>Welcome to the Smart Community Engagement and Resource Sharing Platform! 🌟</h2>
-          <h3>Connect, Share, and Support Your Community—Locally and Globally</h3>
+          <h2>Welcome to the Smart Community Engagement! 🌟</h2>
         </div>
         <img src={logo1} className='image' alt="Globalization Logo" />
       </div>
-
-      {/* Objectives Section */}
+     {/* Objectives Section */}
       <div className='objectives'>
         <div>
           <h3>Objectives</h3>
@@ -56,11 +54,9 @@ const Main = () => {
       <div className="services">
         <div className='ser-tit'>
         <img src={der}></img>
-        <h3>Services</h3><img src={der}></img>
+        <h3>Explore <br></br>Services</h3><img src={der}></img>
         </div>
         <div className='ser-rem'>
-    
-          <div className='ser-tot'>
             <div className='ser-card1'>
             <div className='ser-card1-desc'>
               <h1>Resource Sharing</h1>
@@ -70,48 +66,61 @@ const Main = () => {
               <p className='ser-card1-main'>Saves money, reduces waste, and promotes sustainability.</p>
             </div>
             </div>
-
+            
             <div className='ser-card2'>
+              <div className='ser-card2-desc'>
               <h1>Skill Exchange</h1>
               <p>
                 Trade your skills or expertise in one area for help in another. Whether it’s coding, gardening, or home repairs, skill-sharing makes services affordable and builds a community of mutual support.
               </p>
               <p>Encourages collaboration, eliminates monetary barriers, and creates a supportive network.</p>
             </div>
+            </div>
+           
+
 
             <div className='ser-card3'>
+            <div className='ser-card3-desc'>
               <h1>Local Support Networks</h1>
               <p>
                 Get help with everyday tasks from your neighbors. Whether it’s carrying groceries or walking a dog, local support brings people together for mutual aid, especially for vulnerable individuals.
               </p>
               <p>Builds a supportive, connected community that cares for its members.</p>
             </div>
+            </div>
 
             <div className='ser-card4'>
+            <div className='ser-card4-desc'>
               <h1>Community Events and Activities</h1>
               <p>
                 Organize or participate in community events like cleanups, cultural activities, or workshops. Engage with your neighborhood and make a positive impact while having fun.
               </p>
               <p>Strengthens social bonds, promotes community engagement, and fosters positive interactions.</p>
             </div>
+            </div>
 
             <div className='ser-card5'>
+            <div className='ser-card5-desc'>
               <h1>Marketplace for Free/Low-Cost Goods</h1>
               <p>
                 Share items you no longer need or find free or low-cost goods in your area. Whether you’re moving, decluttering, or looking for something specific, the platform offers a way to give and receive items responsibly.
               </p>
               <p>Reduces waste, supports recycling, and ensures items are reused rather than discarded.</p>
             </div>
+            </div>
 
-            <div className='ser-card7'>
+            <div className='ser-card5'>
+            <div className='ser-card5-desc'>
               <h1>Local News and Alerts</h1>
               <p>
                 Stay informed with local news, emergency alerts, and notifications from community organizations. Whether it’s a weather warning or a local event, the platform ensures you're always in the loop.
               </p>
               <p>Keeps the community informed, promotes safety, and helps people take action during crises.</p>
             </div>
-          </div>
-        </div>
+            </div>
+        
+       
+      </div>
       </div>
 
       {/* Testimonials Section */}
