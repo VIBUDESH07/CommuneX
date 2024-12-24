@@ -16,6 +16,13 @@ import recv from './services/200.webp'
 import useScrollAnimations from './useScroll';
 import ne from './services/new.png';
 import arrow from './services/arrow.png'
+import n1 from './services/Screenshot 2024-12-01 085615.png'
+import n2 from './services/Screenshot 2024-12-01 085728.png'
+import n3 from './services/Screenshot 2024-12-01 085823.png'
+import n4 from './services/Screenshot 2024-12-01 085919.png'
+import n5 from './services/Screenshot 2024-12-01 090010.png'
+import n6 from './services/Screenshot 2024-12-01 090047.png'
+
 const Main = () => {
   useEffect(() => {
     // Dynamically add scroll-animate class to all sections
@@ -32,31 +39,26 @@ const Main = () => {
       {/* Greetings Section */}
       <div className="greetings">
         <div>
-          <h2>Welcome to the Smart Community Engagement! 🌟</h2>
+          <h2>Welcome to <br></br><strong>Smart Community Engagement</strong> </h2>
         </div>
-        <img src={logo1} className='image' alt="Globalization Logo" />
+        <p>Explore our wide range of services designed to foster meaningful connections, drive innovation, and empower communities to grow and thrive in a smarter, more connected world!</p>
+     
       </div>
-     {/* Objectives Section */}
-      <div className='objectives'>
-        <div>
-          <h3>Objectives</h3>
-        </div>
-        <div className="image-obj">
-          {[logo2, img1, img2, img3, img4, img5, img6].map((image, index) => (
-            <div key={index}>
-              <img src={image} alt={`Objective ${index + 1}`} />
-            </div>
-          ))}
-        </div>
-      </div>
-
+     
       {/* Services Section */}
       <div className="services">
         <div className='ser-tit'>
+          <div className='ser-tit-main'>
         <img src={der}></img>
-        <h3>Explore <br></br>Services</h3><img src={der}></img>
+        <h3>Explore Services</h3><img src={der}></img>
+        </div>
+        <div className='ser-tit-greet'>
+        <h3>Connect, Share, and Support</h3>
+        <h3>Locally and Globally</h3> 
+        </div>
         </div>
         <div className='ser-rem'>
+          
             <div className='ser-card1'>
             <div className='ser-card1-desc'>
               <h1>Resource Sharing</h1>
@@ -65,9 +67,11 @@ const Main = () => {
               </p >
               <p className='ser-card1-main'>Saves money, reduces waste, and promotes sustainability.</p>
             </div>
+            <img src={n1}></img>
             </div>
             
             <div className='ser-card2'>
+            <img src={n2}></img>
               <div className='ser-card2-desc'>
               <h1>Skill Exchange</h1>
               <p>
@@ -87,9 +91,11 @@ const Main = () => {
               </p>
               <p>Builds a supportive, connected community that cares for its members.</p>
             </div>
+            <img src={n3}></img>
             </div>
 
             <div className='ser-card4'>
+            <img src={n4}></img>
             <div className='ser-card4-desc'>
               <h1>Community Events and Activities</h1>
               <p>
@@ -107,10 +113,12 @@ const Main = () => {
               </p>
               <p>Reduces waste, supports recycling, and ensures items are reused rather than discarded.</p>
             </div>
+            <img src={n5}></img>
             </div>
 
-            <div className='ser-card5'>
-            <div className='ser-card5-desc'>
+            <div className='ser-card6'>
+            <img src={n6}></img>
+            <div className='ser-card6-desc'>
               <h1>Local News and Alerts</h1>
               <p>
                 Stay informed with local news, emergency alerts, and notifications from community organizations. Whether it’s a weather warning or a local event, the platform ensures you're always in the loop.
@@ -121,6 +129,19 @@ const Main = () => {
         
        
       </div>
+      </div>
+      {/* Objectives Section */}
+      <div className='objectives'>
+        <div>
+          <h3>Objectives</h3>
+        </div>
+        <div className="image-obj">
+          {[logo2, img1, img2, img3, img4, img5, img6].map((image, index) => (
+            <div key={index}>
+              <img src={image} alt={`Objective ${index + 1}`} />
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Testimonials Section */}

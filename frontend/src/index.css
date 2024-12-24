@@ -79,7 +79,6 @@ code {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   height: auto;
   width: 100%;
 }
@@ -90,17 +89,28 @@ code {
   flex-direction: column;
   width: 95%;
   justify-content: center;
-  padding: 1rem;
-  gap: 1rem;
+  
   align-items: center;
-  background-color: lightgreen;
   position: relative;
   overflow: hidden;
 }
-
+.greetings h2{
+  font-size: 60px;
+}
+.greetings strong{
+ 
+  background-image: linear-gradient(to right, rgb(32, 128, 0), rgb(12, 255, 40));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.greetings h3{
+  font-size: 20px;
+}
 .greetings::before {
   content: '';
   position: absolute;
+  top:7rem;
+  left:40rem;
   background-image: url('./components/Home/bg.svg');
   background-repeat: no-repeat;
   height: 100%;
@@ -117,7 +127,7 @@ code {
 .objectives {
   display: flex;
   width:95%;
-  background-image: linear-gradient(to top right,rgb(93, 93, 201), rgb(224, 224, 231), rgb(158, 227, 221));
+  background-image: linear-gradient(to top right,rgb(161, 161, 205), rgb(224, 224, 231), rgb(158, 227, 221));
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -171,17 +181,26 @@ code {
   width: 100%;
   justify-content: center;
   align-items: center;
+
+}
+.ser-tit-main{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap:8rem;
 }
 .ser-tit{
  display:flex;
- flex-direction: row;
+ flex-direction: column;
  align-items: center;
  justify-content: center;
- gap:8rem;
+ 
  
 }
-.ser-tit img{
-  height:80px;
+.ser-tit-main img{
+  height:70px;
+  border-radius: 50px;
 }
 
 
@@ -193,6 +212,12 @@ code {
   align-items: center;
   padding: 1rem;
 }
+.ser-tit-greet h3{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
 
 
 
@@ -200,9 +225,9 @@ code {
   height:400px;
 }
 
-.services h3 {
+.ser-tit-main h3 {
   font-size: 30px;
-  background-image: linear-gradient(to right, green, lightgreen);
+  background-image: linear-gradient(to right, rgb(24, 48, 228), rgb(88, 90, 223));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -213,7 +238,8 @@ code {
 
 }
 .ser-card1 h1{
-  color:blue;
+  font-size: 60px;
+  color:black;
 
 }
 .ser-card1-desc{
@@ -233,6 +259,7 @@ code {
 
 }
 .ser-card2 h1{
+  font-size: 60px;
   color:blue;
 
 }
@@ -250,7 +277,8 @@ code {
 
 }
 .ser-card3 h1{
-  color:blue;
+  font-size: 60px;
+  color:orange;
 
 }
 .ser-card3-desc{
@@ -267,7 +295,8 @@ code {
 
 }
 .ser-card4 h1{
-  color:blue;
+  font-size: 60px;
+  color:yellow;
 
 }
 .ser-card4-desc{
@@ -284,7 +313,8 @@ code {
 
 }
 .ser-card5 h1{
-  color:blue;
+  font-size: 60px;
+  color:green;
 
 }
 .ser-card5-desc{
@@ -301,7 +331,8 @@ code {
 
 }
 .ser-card6 h1{
-  color:blue;
+  font-size: 60px;
+  color:red;
 
 }
 .ser-card6-desc{
