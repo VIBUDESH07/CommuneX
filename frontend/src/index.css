@@ -206,7 +206,8 @@ code {
 
 .ser-rem {
   display: flex;
-  z-index: -3;
+ 
+  background-image: linear-gradient(to top right,rgb(235, 255, 235),rgb(221, 232, 236),rgb(235, 231, 209),rgb(237, 216, 237),white);
   width:100%;
   flex-direction: column;
   align-items: center;
@@ -234,7 +235,7 @@ code {
 .ser-card1{
   display:grid;
   grid-template-columns:1fr 1fr;
-  background-image: linear-gradient(to top right,skyblue,rgb(195, 195, 249),white);
+  
 
 }
 .ser-card1 h1{
@@ -255,8 +256,7 @@ code {
 .ser-card2{
   display:grid;
   grid-template-columns:1fr 1fr;
-  background-image: linear-gradient(to top right,white,skyblue);
-
+  
 }
 .ser-card2 h1{
   font-size: 60px;
@@ -273,8 +273,7 @@ code {
 .ser-card3{
   display:grid;
   grid-template-columns:1fr 1fr;
-  background-image: linear-gradient(to top right,white,skyblue);
-
+  
 }
 .ser-card3 h1{
   font-size: 60px;
@@ -291,8 +290,7 @@ code {
 .ser-card4{
   display:grid;
   grid-template-columns:1fr 1fr;
-  background-image: linear-gradient(to top right,white,skyblue);
-
+  
 }
 .ser-card4 h1{
   font-size: 60px;
@@ -309,8 +307,7 @@ code {
 .ser-card5{
   display:grid;
   grid-template-columns:1fr 1fr;
-  background-image: linear-gradient(to top right,white,skyblue);
-
+  
 }
 .ser-card5 h1{
   font-size: 60px;
@@ -327,8 +324,7 @@ code {
 .ser-card6{
   display:grid;
   grid-template-columns:1fr 1fr;
-  background-image: linear-gradient(to top right,white,skyblue);
-
+  
 }
 .ser-card6 h1{
   font-size: 60px;

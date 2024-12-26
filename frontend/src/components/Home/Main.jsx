@@ -16,7 +16,7 @@ import recv from './services/200.webp'
 import useScrollAnimations from './useScroll';
 import ne from './services/new.png';
 import arrow from './services/arrow.png'
-import n1 from './services/Screenshot 2024-12-01 085615.png'
+import n1 from './Svg/3132812_37135.svg'
 import n2 from './services/Screenshot 2024-12-01 085728.png'
 import n3 from './services/Screenshot 2024-12-01 085823.png'
 import n4 from './services/Screenshot 2024-12-01 085919.png'
@@ -58,77 +58,70 @@ const Main = () => {
         </div>
         </div>
         <div className='ser-rem'>
-          
-            <div className='ser-card1'>
-            <div className='ser-card1-desc'>
-              <h1>Resource Sharing</h1>
-              <p>
-                Easily lend or borrow everyday. From tools to appliances, it’s a sustainable way to meet your needs without buying new items.
-              </p >
-              <p className='ser-card1-main'>Saves money, reduces waste, and promotes sustainability.</p>
-            </div>
-            <img src={n1}></img>
-            </div>
-            
-            <div className='ser-card2'>
-            <img src={n2}></img>
-              <div className='ser-card2-desc'>
-              <h1>Skill Exchange</h1>
-              <p>
-                Trade your skills or expertise in one area for help in another. Whether it’s coding, gardening, or home repairs, skill-sharing makes services affordable and builds a community of mutual support.
-              </p>
-              <p>Encourages collaboration, eliminates monetary barriers, and creates a supportive network.</p>
-            </div>
-            </div>
-           
+
+<div className='ser-card1'>
+  <div className='ser-card1-desc'>
+    <h1>Resource Sharing</h1>
+    <p className='ser-card1-main'>Cut expenses, reduce waste, and embrace eco-friendly habits.</p>
+    <p>Share or borrow everyday items like tools or gadgets. Save money, reduce clutter, and live sustainably.</p>
+    
+  </div>
+  <img src={n1} alt="Resource Sharing"></img>
+</div>
+
+<div className='ser-card2'>
+  <img src={n2} alt="Skill Exchange"></img>
+  <div className='ser-card2-desc'>
+    <h1>Skill Exchange</h1>
+    <p  className='ser-card2-main'>Affordable, empowering, and community-driven solutions.</p>
+    <p>Trade skills like coding, gardening, or repairs. Learn, collaborate, and grow together.</p>
+    
+  </div>
+</div>
+
+<div className='ser-card3'>
+  <div className='ser-card3-desc'>
+    <h1>Local Support Networks</h1>
+    <p  className='ser-card3-main'> A caring community for mutual growth and support.</p>
+    <p>Find help with tasks like grocery runs, babysitting, or pet care. Build stronger, connected neighborhoods.</p>
+   
+  </div>
+  <img src={n3} alt="Local Support"></img>
+</div>
+
+<div className='ser-card4'>
+  <img src={n4} alt="Community Events"></img>
+  <div className='ser-card4-desc'>
+    <h1>Community Events</h1>
+    <p  className='ser-card4-main'>Build friendships, foster engagement, and strengthen bonds.</p>
+    <p>Participate in events like cleanups, workshops, or cultural activities. Make an impact while having fun.</p>
+    
+  </div>
+</div>
+
+<div className='ser-card5'>
+  <div className='ser-card5-desc'>
+    <h1>Free/Low-Cost Marketplace</h1>
+    <p  className='ser-card5-main'> Reduce waste, recycle smartly, and support circular communities.</p>
+    <p>Find, share, or give away items responsibly. Declutter your space and embrace sustainable living.</p>
+    
+  </div>
+  <img src={n5} alt="Marketplace"></img>
+</div>
+
+<div className='ser-card6'>
+  <img src={n6} alt="Local News"></img>
+  <div className='ser-card6-desc'>
+    <h1>Local News & Alerts</h1>
+    <p  className='ser-card6-main'> Stay safe, prepared, and in-the-know at all times.</p>
+    <p>Stay informed with real-time news, events, and alerts. Be proactive and stay connected.</p>
+    
+  </div>
+</div>
+
+</div>
 
 
-            <div className='ser-card3'>
-            <div className='ser-card3-desc'>
-              <h1>Local Support Networks</h1>
-              <p>
-                Get help with everyday tasks from your neighbors. Whether it’s carrying groceries or walking a dog, local support brings people together for mutual aid, especially for vulnerable individuals.
-              </p>
-              <p>Builds a supportive, connected community that cares for its members.</p>
-            </div>
-            <img src={n3}></img>
-            </div>
-
-            <div className='ser-card4'>
-            <img src={n4}></img>
-            <div className='ser-card4-desc'>
-              <h1>Community Events and Activities</h1>
-              <p>
-                Organize or participate in community events like cleanups, cultural activities, or workshops. Engage with your neighborhood and make a positive impact while having fun.
-              </p>
-              <p>Strengthens social bonds, promotes community engagement, and fosters positive interactions.</p>
-            </div>
-            </div>
-
-            <div className='ser-card5'>
-            <div className='ser-card5-desc'>
-              <h1>Marketplace for Free/Low-Cost Goods</h1>
-              <p>
-                Share items you no longer need or find free or low-cost goods in your area. Whether you’re moving, decluttering, or looking for something specific, the platform offers a way to give and receive items responsibly.
-              </p>
-              <p>Reduces waste, supports recycling, and ensures items are reused rather than discarded.</p>
-            </div>
-            <img src={n5}></img>
-            </div>
-
-            <div className='ser-card6'>
-            <img src={n6}></img>
-            <div className='ser-card6-desc'>
-              <h1>Local News and Alerts</h1>
-              <p>
-                Stay informed with local news, emergency alerts, and notifications from community organizations. Whether it’s a weather warning or a local event, the platform ensures you're always in the loop.
-              </p>
-              <p>Keeps the community informed, promotes safety, and helps people take action during crises.</p>
-            </div>
-            </div>
-        
-       
-      </div>
       </div>
       {/* Objectives Section */}
       <div className='objectives'>
