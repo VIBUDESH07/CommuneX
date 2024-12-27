@@ -24,6 +24,16 @@ code {
   width: 100%;
   box-shadow: 0px 2px 10px black;
 }
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff; /* You can change the background color */
+  z-index: 1000; /* Ensures it stays above other content */
+  box-shadow: 0 4px 2px -2px gray; /* Optional: adds shadow for better visibility */
+}
+
 
 .header-nav {
   display: flex;
@@ -81,18 +91,22 @@ code {
   align-items: center;
   height: auto;
   width: 100%;
+  overflow: hidden;
 }
 
 .greetings {
   display: flex;
   border-radius: 7px;
-  flex-direction: column;
+  flex-direction: row;
   width: 95%;
   justify-content: center;
   
   align-items: center;
   position: relative;
   overflow: hidden;
+}
+.greetings img{
+  height:200px;
 }
 .greetings h2{
   font-size: 60px;
@@ -181,7 +195,8 @@ code {
   width: 100%;
   justify-content: center;
   align-items: center;
-
+  background-image: linear-gradient(to top right,white,rgb(206, 237, 206));
+ 
 }
 .ser-tit-main{
   display: flex;
@@ -206,12 +221,11 @@ code {
 
 .ser-rem {
   display: flex;
- 
-  background-image: linear-gradient(to top right,rgb(235, 255, 235),rgb(221, 232, 236),rgb(235, 231, 209),rgb(237, 216, 237),white);
   width:100%;
   flex-direction: column;
   align-items: center;
   padding: 1rem;
+  text-align: justify;
 }
 .ser-tit-greet h3{
   display: flex;
@@ -219,11 +233,23 @@ code {
   align-items: center;
   font-size: 30px;
 }
-
+.ser-tit-greet{
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8rem;
+}
+.ser-tit-greet img{
+  height:200px;
+}
 
 
 .ser-rem img{
   height:400px;
+}
+.ser-rem p,h1{
+  text-align: center;
 }
 
 .ser-tit-main h3 {
@@ -235,12 +261,14 @@ code {
 .ser-card1{
   display:grid;
   grid-template-columns:1fr 1fr;
-  
-
+  padding: 1rem;
+  margin:1rem;
 }
 .ser-card1 h1{
   font-size: 60px;
-  color:black;
+  background-image: linear-gradient(to top right,blue,rgb(251, 7, 255));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 
 }
 .ser-card1-desc{
@@ -251,16 +279,31 @@ code {
   justify-content: center;
 }
 .ser-card1-main{
-  
+  font-size: 35px;
+  font-weight: bolder;
+  background-image: linear-gradient(to right,rgb(0, 255, 26),rgb(12, 28, 247));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
+.ser-card-img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
 .ser-card2{
   display:grid;
   grid-template-columns:1fr 1fr;
+  padding: 1rem;
+  margin:1rem;
   
 }
 .ser-card2 h1{
   font-size: 60px;
-  color:blue;
+  background-image: linear-gradient(to right,rgb(245, 64, 64),rgb(241, 96, 0));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 
 }
 .ser-card2-desc{
@@ -273,11 +316,15 @@ code {
 .ser-card3{
   display:grid;
   grid-template-columns:1fr 1fr;
+  padding: 1rem;
+  margin:1rem;
   
 }
 .ser-card3 h1{
   font-size: 60px;
-  color:orange;
+  background-image: linear-gradient(to top right,rgb(255, 0, 0),orange);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 
 }
 .ser-card3-desc{
@@ -290,11 +337,15 @@ code {
 .ser-card4{
   display:grid;
   grid-template-columns:1fr 1fr;
+  padding: 1rem;
+  margin:1rem;
   
 }
 .ser-card4 h1{
   font-size: 60px;
-  color:yellow;
+  background-image: linear-gradient(to bottom left,rgb(255, 149, 0),rgb(211, 190, 27));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 
 }
 .ser-card4-desc{
@@ -307,11 +358,15 @@ code {
 .ser-card5{
   display:grid;
   grid-template-columns:1fr 1fr;
+  padding: 2rem;
+  margin:1rem;
   
 }
 .ser-card5 h1{
   font-size: 60px;
-  color:green;
+  background-image: linear-gradient(to left,rgb(113, 113, 207),rgb(0, 255, 85));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 
 }
 .ser-card5-desc{
@@ -324,11 +379,15 @@ code {
 .ser-card6{
   display:grid;
   grid-template-columns:1fr 1fr;
+  padding: 2rem;
+  margin:1rem;
   
 }
 .ser-card6 h1{
   font-size: 60px;
-  color:red;
+  background-image: linear-gradient(to top right,rgb(255, 0, 0),rgb(224, 133, 84));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 
 }
 .ser-card6-desc{
@@ -337,6 +396,39 @@ code {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.ser-rem button{
+  padding:0.8rem;
+  font-size: 15px;
+  border-radius: 10px;
+  border: 2px solid green;
+  background-image: linear-gradient(to right,rgb(249, 249, 249),lightgreen);
+  color: rgb(0, 0, 0);
+}
+.ser-rem button:hover{
+  background-image: linear-gradient(to right,lightgreen,rgb(224, 224, 224));
+
+}
+.ser-card-advantages ul,li{
+  list-style-type: none;
+
+}
+.ser-card-advantages ul{
+  display: flex;
+  flex-direction: row;
+  gap:2rem;
+  
+}
+.ser-card-advantages li{
+  display: flex;
+  flex-direction: column;
+  
+  background-color: white;
+  padding:1rem;
+  border-radius: 10px;
+  
+  text-align: center;
+  box-shadow: 0px 1px 1px black;
 }
 /* Testimonials Section */
 .testimonials {

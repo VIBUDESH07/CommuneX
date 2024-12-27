@@ -16,13 +16,15 @@ import recv from './services/200.webp'
 import useScrollAnimations from './useScroll';
 import ne from './services/new.png';
 import arrow from './services/arrow.png'
-import n1 from './Svg/3132812_37135.svg'
-import n2 from './services/Screenshot 2024-12-01 085728.png'
+import n2 from './Svg/—Pngtree—cloud data sharing pictures_5447925.png'
+import n1 from './Svg/—Pngtree—barter exchange concept showing two_18962623.png'
 import n3 from './services/Screenshot 2024-12-01 085823.png'
 import n4 from './services/Screenshot 2024-12-01 085919.png'
 import n5 from './services/Screenshot 2024-12-01 090010.png'
 import n6 from './services/Screenshot 2024-12-01 090047.png'
-
+import wel from './Svg/—Pngtree—hand drawn children say hello_5937126.png'
+import rep from './Svg/—Pngtree—man standing to say hello_7670366.png'
+import globe from './Svg/earth.ffd19520c4086c9eb848.png'
 const Main = () => {
   useEffect(() => {
     // Dynamically add scroll-animate class to all sections
@@ -38,91 +40,162 @@ const Main = () => {
     <div className='main'>
       {/* Greetings Section */}
       <div className="greetings">
+        <img src={wel} />
         <div>
           <h2>Welcome to <br></br><strong>Smart Community Engagement</strong> </h2>
         </div>
-        <p>Explore our wide range of services designed to foster meaningful connections, drive innovation, and empower communities to grow and thrive in a smarter, more connected world!</p>
-     
+          <img src={rep}/>
       </div>
-     
+      <p>Explore our wide range of services designed to foster meaningful connections, drive innovation, and empower communities to grow and thrive in a smarter, more connected world!</p>
+   
       {/* Services Section */}
       <div className="services">
-        <div className='ser-tit'>
-          <div className='ser-tit-main'>
-        <img src={der}></img>
-        <h3>Explore Services</h3><img src={der}></img>
-        </div>
-        <div className='ser-tit-greet'>
-        <h3>Connect, Share, and Support</h3>
-        <h3>Locally and Globally</h3> 
-        </div>
-        </div>
-        <div className='ser-rem'>
-
-<div className='ser-card1'>
-  <div className='ser-card1-desc'>
-    <h1>Resource Sharing</h1>
-    <p className='ser-card1-main'>Cut expenses, reduce waste, and embrace eco-friendly habits.</p>
-    <p>Share or borrow everyday items like tools or gadgets. Save money, reduce clutter, and live sustainably.</p>
-    
-  </div>
-  <img src={n1} alt="Resource Sharing"></img>
-</div>
-
-<div className='ser-card2'>
-  <img src={n2} alt="Skill Exchange"></img>
-  <div className='ser-card2-desc'>
-    <h1>Skill Exchange</h1>
-    <p  className='ser-card2-main'>Affordable, empowering, and community-driven solutions.</p>
-    <p>Trade skills like coding, gardening, or repairs. Learn, collaborate, and grow together.</p>
-    
-  </div>
-</div>
-
-<div className='ser-card3'>
-  <div className='ser-card3-desc'>
-    <h1>Local Support Networks</h1>
-    <p  className='ser-card3-main'> A caring community for mutual growth and support.</p>
-    <p>Find help with tasks like grocery runs, babysitting, or pet care. Build stronger, connected neighborhoods.</p>
+  <div className="ser-tit">
+    <div className="ser-tit-main">
    
-  </div>
-  <img src={n3} alt="Local Support"></img>
-</div>
-
-<div className='ser-card4'>
-  <img src={n4} alt="Community Events"></img>
-  <div className='ser-card4-desc'>
-    <h1>Community Events</h1>
-    <p  className='ser-card4-main'>Build friendships, foster engagement, and strengthen bonds.</p>
-    <p>Participate in events like cleanups, workshops, or cultural activities. Make an impact while having fun.</p>
-    
-  </div>
-</div>
-
-<div className='ser-card5'>
-  <div className='ser-card5-desc'>
-    <h1>Free/Low-Cost Marketplace</h1>
-    <p  className='ser-card5-main'> Reduce waste, recycle smartly, and support circular communities.</p>
-    <p>Find, share, or give away items responsibly. Declutter your space and embrace sustainable living.</p>
-    
-  </div>
-  <img src={n5} alt="Marketplace"></img>
-</div>
-
-<div className='ser-card6'>
-  <img src={n6} alt="Local News"></img>
-  <div className='ser-card6-desc'>
-    <h1>Local News & Alerts</h1>
-    <p  className='ser-card6-main'> Stay safe, prepared, and in-the-know at all times.</p>
-    <p>Stay informed with real-time news, events, and alerts. Be proactive and stay connected.</p>
-    
-  </div>
-</div>
-
-</div>
-
-
+      <h3>Explore Services</h3>
+ 
+    </div>
+    <div className="ser-tit-greet">
+    <img src={hand}/>
+      <div>
+        <h3>Connect, Share, and Support</h3>
+        <h3>Locally and Globally</h3>
       </div>
+      <img src={globe}/>
+    </div>
+  </div>
+
+  <div className="ser-rem">
+    <div className="ser-card1">
+      <div className="ser-card1-desc">
+        <h1>Share What You Have</h1>
+        <p className="ser-card1-main">Save Money, Cut Clutter, Live Green</p>
+        <p>Offer tools, gadgets, or everyday items for borrowing. Build a community that values sustainability and sharing.</p>
+        <button className="ser-card-btn">Share Now</button>
+        <div className="ser-card-advantages">
+          <ul>
+            <li><span>🌍</span><p>Promotes sharing culture</p></li>
+            <li><span>💰</span><p>Reduces expenses</p></li>
+            <li><span>♻️</span><p>Minimizes waste</p></li>
+            <li><span>🤝</span><p>Builds connections</p></li>
+            <li><span>🌱</span><p>Encourages sustainability</p></li>
+          </ul>
+        </div>
+      </div>
+      <div className="ser-card-img">
+        <img src={n1} alt="Share What You Have" />
+      </div>
+    </div>
+
+    <div className="ser-card2">
+      <div className="ser-card-img">
+        <img src={n2} alt="Trade Your Talents" />
+      </div>
+      <div className="ser-card2-desc">
+        <h1>Trade Your Talents</h1>
+        <p className="ser-card2-main">Learn, Teach, and Create Together</p>
+        <p>Swap skills like coding, gardening, or DIY repairs. Collaborate, connect, and grow your expertise.</p>
+        <button className="ser-card-btn">Trade Now</button>
+        <div className="ser-card-advantages">
+          <ul>
+            <li><span>📚</span><p>Enhances learning</p></li>
+            <li><span>💼</span><p>Builds expertise</p></li>
+            <li><span>🤝</span><p>Fosters collaboration</p></li>
+            <li><span>👨‍🏫</span><p>Encourages teaching</p></li>
+            <li><span>🎨</span><p>Promotes creativity</p></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div className="ser-card3">
+      <div className="ser-card3-desc">
+        <h1>Find Local Helpers</h1>
+        <p className="ser-card3-main">Neighbors Helping Neighbors</p>
+        <p>Get support for tasks like grocery shopping, babysitting, or pet care. Build strong, helpful connections in your community.</p>
+        <button className="ser-card-btn">Help Now</button>
+        <div className="ser-card-advantages">
+          <ul>
+            <li><span>🛒</span><p>Provides task assistance</p></li>
+            <li><span>🏘️</span><p>Strengthens community bonds</p></li>
+            <li><span>🫂</span><p>Encourages mutual support</p></li>
+            <li><span>🤝</span><p>Increases trust locally</p></li>
+            <li><span>🔄</span><p>Boosts resource sharing</p></li>
+          </ul>
+        </div>
+      </div>
+      <div className="ser-card-img">
+        <img src={n3} alt="Find Local Helpers" />
+      </div>
+    </div>
+
+    <div className="ser-card4">
+      <div className="ser-card-img">
+        <img src={n4} alt="Get Involved Today" />
+      </div>
+      <div className="ser-card4-desc">
+        <h1>Get Involved Today</h1>
+        <p className="ser-card4-main">Make Friends, Make an Impact</p>
+        <p>Join cleanups, workshops, or cultural events. Build meaningful connections while creating positive change.</p>
+        <button className="ser-card-btn">Join Us</button>
+        <div className="ser-card-advantages">
+          <ul>
+            <li><span>🎉</span><p>Encourages participation</p></li>
+            <li><span>🌟</span><p>Supports community growth</p></li>
+            <li><span>👫</span><p>Fosters social connections</p></li>
+            <li><span>🔧</span><p>Drives positive change</p></li>
+            <li><span>🌍</span><p>Promotes cultural exchange</p></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div className="ser-card5">
+      <div className="ser-card5-desc">
+        <h1>Declutter for Good</h1>
+        <p className="ser-card5-main">Find, Share, and Reuse Responsibly</p>
+        <p>Give away or find free/low-cost items. Reduce waste, embrace minimalism, and support a circular economy.</p>
+        <button className="ser-card-btn">Declutter Now</button>
+        <div className="ser-card-advantages">
+          <ul>
+            <li><span>♻️</span><p>Reduces waste</p></li>
+            <li><span>🌳</span><p>Supports recycling</p></li>
+            <li><span>🧹</span><p>Encourages minimalism</p></li>
+            <li><span>🌿</span><p>Promotes eco-friendliness</p></li>
+            <li><span>🔄</span><p>Strengthens circular economy</p></li>
+          </ul>
+        </div>
+      </div>
+      <div className="ser-card-img">
+        <img src={n5} alt="Declutter for Good" />
+      </div>
+    </div>
+
+    <div className="ser-card6">
+      <div className="ser-card-img">
+        <img src={n6} alt="Stay Alert" />
+      </div>
+      <div className="ser-card6-desc">
+        <h1>Stay Alert, Stay Safe</h1>
+        <p className="ser-card6-main">Your Local News, Delivered</p>
+        <p>Stay informed with real-time updates on news, events, and alerts in your area. Stay prepared and aware.</p>
+        <button className="ser-card-btn">Learn More</button>
+        <div className="ser-card-advantages">
+          <ul>
+            <li><span>🕒</span><p>Real-time updates</p></li>
+            <li><span>🛡️</span><p>Improves safety awareness</p></li>
+            <li><span>📖</span><p>Encourages preparedness</p></li>
+            <li><span>📣</span><p>Keeps locals informed</p></li>
+            <li><span>🌐</span><p>Builds community awareness</p></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
       {/* Objectives Section */}
       <div className='objectives'>
         <div>

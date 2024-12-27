@@ -5,10 +5,11 @@ import Main from './Main'
 const Layout = () => {
   return (
     <div>
-        <>
-        <Head/>
-        <Main/>
-        </>
+<>
+  <Head className="fixed-header" />
+  <Main />
+</>
+
       
     </div>
   )
