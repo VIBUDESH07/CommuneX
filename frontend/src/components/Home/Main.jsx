@@ -8,23 +8,24 @@ import img4 from './OBJECTIVES/images-_3_.svg';
 import img5 from './OBJECTIVES/images-_4_.svg';
 import img6 from './OBJECTIVES/images.svg';
 import hand from './services/clipart2493730.png';
-import der from './services/giphy.webp'
+
 import line from './services/Untitled.png'
 import hi from './services/giphy (1).webp'
 import send from './services/giphy (2).webp'
 import recv from './services/200.webp'
 import useScrollAnimations from './useScroll';
-import ne from './services/new.png';
+import arr from './Svg/e6e45d2aafca09a4b64c905e968d12ea.png'
 import arrow from './services/arrow.png'
 import n2 from './Svg/—Pngtree—cloud data sharing pictures_5447925.png'
 import n1 from './Svg/—Pngtree—barter exchange concept showing two_18962623.png'
-import n3 from './services/Screenshot 2024-12-01 085823.png'
-import n4 from './services/Screenshot 2024-12-01 085919.png'
-import n5 from './services/Screenshot 2024-12-01 090010.png'
-import n6 from './services/Screenshot 2024-12-01 090047.png'
+import n3 from './Svg/—Pngtree—volunteer charity_5415812.png'
+import n4 from './Svg/rachel-coyne-U7HLzMO4SIY-unsplash.jpg'
+import n5 from './Svg/—Pngtree—neighbors clipart family of people_11074551.png'
+import n6 from './Svg/—Pngtree—newspaper isolated on transparent background_15387381.png'
 import wel from './Svg/—Pngtree—hand drawn children say hello_5937126.png'
 import rep from './Svg/—Pngtree—man standing to say hello_7670366.png'
 import globe from './Svg/earth.ffd19520c4086c9eb848.png'
+import n7 from './Svg/—Pngtree—red triangle alert icon_4750635.png'
 const Main = () => {
   useEffect(() => {
     // Dynamically add scroll-animate class to all sections
@@ -52,15 +53,23 @@ const Main = () => {
       <div className="services">
   <div className="ser-tit">
     <div className="ser-tit-main">
-   
+    <img src={arr}></img>
       <h3>Explore Services</h3>
- 
+      <img src={arr} className='reverse'></img>
+      
     </div>
     <div className="ser-tit-greet">
     <img src={hand}/>
       <div>
         <h3>Connect, Share, and Support</h3>
-        <h3>Locally and Globally</h3>
+        <h3 style={{
+  backgroundImage: 'linear-gradient(to right, red,rgb(0, 141, 28), rgb(0, 141, 28))',
+  WebkitBackgroundClip: 'text',
+  WebkitTextFillColor: 'transparent'
+}}>
+  Locally and Globally
+</h3>
+
       </div>
       <img src={globe}/>
     </div>
@@ -175,6 +184,7 @@ const Main = () => {
     <div className="ser-card6">
       <div className="ser-card-img">
         <img src={n6} alt="Stay Alert" />
+        <img src={n7}/>
       </div>
       <div className="ser-card6-desc">
         <h1>Stay Alert, Stay Safe</h1>
@@ -290,21 +300,40 @@ const Main = () => {
           <img src="partner-logo3.png" alt="Partner 3" />
         </div>
       </div>
-      <div className="blog-section">
-        <h3>Latest Articles</h3>
-        <div className="blog-posts">
-          <div className="blog-post">
-            <h4>5 Ways to Get Involved in Your Local Community</h4>
-            <p>Discover simple ways to contribute to the well-being of your neighborhood. From volunteering to sharing resources...</p>
-            <a href="#">Read More</a>
-          </div>
-          <div className="blog-post">
-            <h4>How to Start Skill Sharing in Your Area</h4>
-            <p>Skill-sharing is a powerful tool for community building. Here’s how you can get started...</p>
-            <a href="#">Read More</a>
-          </div>
-        </div>
-      </div>
+      {/* Blog/Resources Section */}
+<div className="blog-section">
+  <h3>Community Insights</h3>
+  <div className="blog-posts">
+    <div className="blog-post">
+      <h4>5 Ways to Get Involved in Your Local Community</h4>
+      <p>Discover simple ways to contribute to the well-being of your neighborhood. From volunteering to sharing resources, learn how small actions can make a big difference.</p>
+      <a href="#">Read More</a>
+    </div>
+    <div className="blog-post">
+      <h4>The Power of Skill Sharing: Building a Stronger Community</h4>
+      <p>Explore how skill-sharing initiatives are transforming neighborhoods, fostering learning, and creating lasting connections among community members.</p>
+      <a href="#">Read More</a>
+    </div>
+    <div className="blog-post">
+      <h4>Sustainable Living: Community-Driven Eco-Friendly Practices</h4>
+      <p>Learn about innovative, community-led projects that are making neighborhoods more sustainable and environmentally friendly.</p>
+      <a href="#">Read More</a>
+    </div>
+    <div className="blog-post">
+      <h4>Bridging Generations: Intergenerational Programs in Your Community</h4>
+      <p>Discover the benefits of programs that connect younger and older community members, fostering understanding and mutual support.</p>
+      <a href="#">Read More</a>
+    </div>
+  </div>
+  <div className="newsletter-signup">
+    <h4>Stay Connected with Our Community</h4>
+    <p>Sign up for our newsletter to receive the latest community news, event updates, and helpful resources.</p>
+    <form>
+      <input type="email" placeholder="Enter your email address" required />
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</div>
       {/* Footer Section */}
       <div className="footer">
         <div className="footer-links">
@@ -321,10 +350,11 @@ const Main = () => {
         <p>&copy; 2024 Smart Community Platform. All Rights Reserved.</p>
       </div>
 
-      {/* Blog/Resources Section */}
       
+
  </div>
   );
 };
 
 export default Main;
+

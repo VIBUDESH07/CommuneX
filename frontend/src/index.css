@@ -195,28 +195,34 @@ code {
   width: 100%;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(to top right,white,rgb(206, 237, 206));
+  background-image: linear-gradient(to top right,white,rgb(206, 237, 206),white);
+ 
+}
+
+.ser-tit{
+ display:flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ margin-top:1rem;
  
 }
 .ser-tit-main{
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap:8rem;
 }
-.ser-tit{
- display:flex;
- flex-direction: column;
- align-items: center;
- justify-content: center;
- 
- 
+.reverse {
+  transform: scaleX(-1);
 }
+
 .ser-tit-main img{
-  height:70px;
-  border-radius: 50px;
+  height:200px;
+
 }
+
 
 
 .ser-rem {
@@ -232,6 +238,9 @@ code {
   justify-content: center;
   align-items: center;
   font-size: 30px;
+  background-image: linear-gradient(to right,rgb(0, 141, 28),rgb(24, 142, 0),rgb(235, 18, 18));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .ser-tit-greet{
   display: flex;
@@ -262,7 +271,7 @@ code {
   display:grid;
   grid-template-columns:1fr 1fr;
   padding: 1rem;
-  margin:1rem;
+  
 }
 .ser-card1 h1{
   font-size: 60px;
@@ -270,6 +279,9 @@ code {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
+}
+.ser-card4 .ser-card-img img{
+  border-radius: 90px;
 }
 .ser-card1-desc{
   display:flex;
@@ -281,7 +293,42 @@ code {
 .ser-card1-main{
   font-size: 35px;
   font-weight: bolder;
-  background-image: linear-gradient(to right,rgb(0, 255, 26),rgb(12, 28, 247));
+  background-image: linear-gradient(to bottom right,rgb(255, 0, 0),rgb(255, 153, 0));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.ser-card2-main{
+  font-size: 35px;
+  font-weight: bolder;
+  background-image: linear-gradient(to right,rgb(47, 0, 255),rgb(52, 241, 0));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.ser-card3-main{
+  font-size: 35px;
+  font-weight: bolder;
+  background-image: linear-gradient(to bottom right,rgb(0, 200, 255),rgb(85, 0, 255));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.ser-card4-main{
+  font-size: 35px;
+  font-weight: bolder;
+  background-image: linear-gradient(to bottom right,rgb(234, 0, 255),rgb(162, 0, 255));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.ser-card5-main{
+  font-size: 35px;
+  font-weight: bolder;
+  background-image: linear-gradient(to bottom right,rgb(255, 0, 0),rgb(255, 153, 0));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.ser-card6-main{
+  font-size: 35px;
+  font-weight: bolder;
+  background-image: linear-gradient(to bottom,rgb(174, 0, 255),rgb(255, 0, 0));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -296,7 +343,7 @@ code {
   display:grid;
   grid-template-columns:1fr 1fr;
   padding: 1rem;
-  margin:1rem;
+ 
   
 }
 .ser-card2 h1{
@@ -317,7 +364,7 @@ code {
   display:grid;
   grid-template-columns:1fr 1fr;
   padding: 1rem;
-  margin:1rem;
+ 
   
 }
 .ser-card3 h1{
@@ -338,7 +385,7 @@ code {
   display:grid;
   grid-template-columns:1fr 1fr;
   padding: 1rem;
-  margin:1rem;
+
   
 }
 .ser-card4 h1{
@@ -358,8 +405,8 @@ code {
 .ser-card5{
   display:grid;
   grid-template-columns:1fr 1fr;
-  padding: 2rem;
-  margin:1rem;
+  padding: 1rem;
+
   
 }
 .ser-card5 h1{
@@ -379,8 +426,8 @@ code {
 .ser-card6{
   display:grid;
   grid-template-columns:1fr 1fr;
-  padding: 2rem;
-  margin:1rem;
+  padding: 1rem;
+
   
 }
 .ser-card6 h1{
@@ -426,9 +473,12 @@ code {
   background-color: white;
   padding:1rem;
   border-radius: 10px;
-  
   text-align: center;
-  box-shadow: 0px 1px 1px black;
+  box-shadow: 0px 1px 10px rgb(168, 166, 166);
+}
+.ser-card-advantages li:hover{
+  transform: translateY(-10px);
+  transition: 0.3s ease-in;
 }
 /* Testimonials Section */
 .testimonials {
@@ -759,6 +809,8 @@ gap:1rem;
 .login-input2 h1{
    margin-left:7rem;
    background-image: linear-gradient(to right,blue,rgb(235, 18, 235));
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
 }
 .login-input{
   display: flex;
@@ -859,6 +911,10 @@ gap:1rem;
 }
 .sign-signup-container h1{
   margin-left: 8rem;
+  background-image: linear-gradient(to right,blue,rgb(235, 18, 235));
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+
 }
 
 
