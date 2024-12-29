@@ -1,4 +1,3 @@
-Here’s a sample README tailored for a project called **SkyConnect**, a platform for seamless community and IoT device interaction:
 
 ---
 
@@ -126,5 +125,3 @@ This project is licensed under the [MIT License](LICENSE).
 - **LinkedIn**: [Your LinkedIn](https://linkedin.com/in/yourprofile)  
 
 ---
-
-Let me know if you'd like to adjust any part of this for your project! 😊
