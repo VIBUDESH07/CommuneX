@@ -8,7 +8,7 @@ import img4 from './OBJECTIVES/images-_3_.svg';
 import img5 from './OBJECTIVES/images-_4_.svg';
 import img6 from './OBJECTIVES/images.svg';
 import hand from './services/clipart2493730.png';
-
+import giphy from './services/giphy.webp'
 import line from './services/Untitled.png'
 import hi from './services/giphy (1).webp'
 import send from './services/giphy (2).webp'
@@ -41,21 +41,45 @@ const Main = () => {
     <div className='main'>
       {/* Greetings Section */}
       <div className="greetings">
-        <img src={wel} />
-        <div>
-          <h2>Welcome to <br></br><strong>Smart Community Engagement</strong> </h2>
-        </div>
-          <img src={rep}/>
-      </div>
-      <p className='n'>Explore our wide range of services designed to foster meaningful connections, drive innovation, and empower communities to grow and thrive in a smarter, more connected world!</p>
-   
+  <img src={wel} alt="Welcome" />
+  <div>
+    <h2>
+      Welcome to <br />
+      <strong>Smart Community Engagement</strong>
+    </h2>
+    <p className="n">
+      Discover services that build connections and empower communities to thrive in a smarter, connected world!
+    </p>
+    <button 
+      style={{
+        backgroundColor: '#007BFF',
+        color: '#fff',
+        padding: '12px 24px',
+        border: 'none',
+        borderRadius: '5px',
+        cursor: 'pointer',
+        fontSize: '1rem',
+        marginTop: '20px',
+        transition: '0.3s ease',
+      }}
+      onClick={() => alert('Welcome to the community!')}
+      onMouseOver={(e) => (e.target.style.backgroundColor = '#0056b3')}
+      onMouseOut={(e) => (e.target.style.backgroundColor = '#007BFF')}
+    >
+      Join Now
+    </button>
+    <div className="gradient"></div>
+  </div>
+  <img src={rep} alt="Representative" />
+</div>
+
       {/* Services Section */}
       <div className="services">
   <div className="ser-tit">
     <div className="ser-tit-main">
-    <img src={arr}></img>
+      <img src={giphy}></img>
       <h3>Explore Services</h3>
-      <img src={arr} className='reverse'></img>
+      <img src={giphy}></img>
       
     </div>
     <div className="ser-tit-greet">
@@ -63,7 +87,7 @@ const Main = () => {
       <div>
         <h3>Connect, Share, and Support</h3>
         <h3 style={{
-  backgroundImage: 'linear-gradient(to right, red,rgb(0, 141, 28), rgb(0, 141, 28))',
+  backgroundImage: 'linear-gradient(to right,#00bdf7, rgb(0, 7, 216))',
   WebkitBackgroundClip: 'text',
   WebkitTextFillColor: 'transparent'
 }}>
@@ -71,7 +95,7 @@ const Main = () => {
 </h3>
 
       </div>
-      <img src={globe}/>
+      <img src={globe} alt="Rotating Globe" className="rotating-image" />
     </div>
   </div>
 
@@ -80,7 +104,7 @@ const Main = () => {
       <div className="ser-card1-desc">
         <h1>Share What You Have</h1>
         <p className="ser-card1-main">Save Money, Cut Clutter, Live Green</p>
-        <p>Offer tools, gadgets, or everyday items for borrowing. Build a community that values sustainability and sharing.</p>
+        <p className='n1'>Offer tools, gadgets, or everyday items for borrowing. Build a community that values sustainability and sharing.</p>
         <button className="ser-card-btn">Share Now</button>
         <div className="ser-card-advantages">
           <ul>
@@ -104,7 +128,7 @@ const Main = () => {
       <div className="ser-card2-desc">
         <h1>Trade Your Talents</h1>
         <p className="ser-card2-main">Learn, Teach, and Create Together</p>
-        <p>Swap skills like coding, gardening, or DIY repairs. Collaborate, connect, and grow your expertise.</p>
+        <p className='n1'>Swap skills like coding, gardening, or DIY repairs. Collaborate, connect, and grow your expertise.</p>
         <button className="ser-card-btn">Trade Now</button>
         <div className="ser-card-advantages">
           <ul>
