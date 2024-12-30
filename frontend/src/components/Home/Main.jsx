@@ -47,7 +47,7 @@ const Main = () => {
         </div>
           <img src={rep}/>
       </div>
-      <p>Explore our wide range of services designed to foster meaningful connections, drive innovation, and empower communities to grow and thrive in a smarter, more connected world!</p>
+      <p className='n'>Explore our wide range of services designed to foster meaningful connections, drive innovation, and empower communities to grow and thrive in a smarter, more connected world!</p>
    
       {/* Services Section */}
       <div className="services">

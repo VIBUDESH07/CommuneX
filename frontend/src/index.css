@@ -65,8 +65,9 @@ code {
 }
 
 .sign {
-  background-color: rgb(6, 226, 255);
+  background-color: rgb(96, 198, 99);
   color: rgb(2, 1, 1);
+  border: none;
   padding: 0.8rem;
   font-size: 16px;
   border-radius: 7px;
@@ -100,7 +101,7 @@ code {
   flex-direction: row;
   width: 95%;
   justify-content: center;
-  
+  text-align: center;
   align-items: center;
   position: relative;
   overflow: hidden;
@@ -110,6 +111,7 @@ code {
 }
 .greetings h2{
   font-size: 60px;
+  text-align: center;
 }
 .greetings strong{
  
@@ -120,6 +122,10 @@ code {
 .greetings h3{
   font-size: 20px;
 }
+.n{
+  text-align: center;
+}
+
 .greetings::before {
   content: '';
   position: absolute;
@@ -195,7 +201,7 @@ code {
   width: 100%;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(to top right,white,rgb(206, 237, 206),white);
+  background-image: linear-gradient(to top right,white,rgb(209, 238, 209),white);
  
 }
 
@@ -270,7 +276,7 @@ code {
 .ser-card1{
   display:grid;
   grid-template-columns:1fr 1fr;
-  padding: 1rem;
+  padding: 0rem 2rem;
   
 }
 .ser-card1 h1{
@@ -342,7 +348,7 @@ code {
 .ser-card2{
   display:grid;
   grid-template-columns:1fr 1fr;
-  padding: 1rem;
+  padding: 0rem 2rem;
  
   
 }
@@ -363,7 +369,7 @@ code {
 .ser-card3{
   display:grid;
   grid-template-columns:1fr 1fr;
-  padding: 1rem;
+  padding: 0rem 2rem;
  
   
 }
@@ -384,7 +390,7 @@ code {
 .ser-card4{
   display:grid;
   grid-template-columns:1fr 1fr;
-  padding: 1rem;
+  padding: 0rem 2rem;
 
   
 }
@@ -405,7 +411,7 @@ code {
 .ser-card5{
   display:grid;
   grid-template-columns:1fr 1fr;
-  padding: 1rem;
+  padding: 0rem 2rem;
 
   
 }
@@ -426,7 +432,7 @@ code {
 .ser-card6{
   display:grid;
   grid-template-columns:1fr 1fr;
-  padding: 1rem;
+  padding: 0rem 2rem;
 
   
 }
@@ -448,13 +454,13 @@ code {
   padding:0.8rem;
   font-size: 15px;
   border-radius: 10px;
-  border: 2px solid green;
-  background-image: linear-gradient(to right,rgb(249, 249, 249),lightgreen);
-  color: rgb(0, 0, 0);
+  border:none;
+  background-image: linear-gradient(to right,rgb(0, 204, 255),rgb(8, 76, 249));
+  color: rgb(255, 255, 255);
 }
 .ser-rem button:hover{
   background-image: linear-gradient(to right,lightgreen,rgb(224, 224, 224));
-
+  color: #000000;
 }
 .ser-card-advantages ul,li{
   list-style-type: none;
@@ -479,6 +485,9 @@ code {
 .ser-card-advantages li:hover{
   transform: translateY(-10px);
   transition: 0.3s ease-in;
+}
+.ser-rem span{
+  font-size:30px;
 }
 /* Testimonials Section */
 .testimonials {
