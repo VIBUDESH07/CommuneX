@@ -35,7 +35,7 @@ const Main = () => {
   <img src={wel} alt="Welcome" />
   <div>
     <h2>
-      Welcome to <br />
+    🌟 Welcome to 🌟<br />
       <strong>Smart Community Engagement</strong>
     </h2>
     <p className="n">
@@ -140,7 +140,7 @@ const Main = () => {
       <div className="ser-card3-desc">
         <h1>Find Local Helpers</h1>
         <p className="ser-card3-main">Neighbors Helping Neighbors</p>
-        <p>Get support for tasks like grocery shopping, babysitting, or pet care. Build strong, helpful connections in your community.</p>
+        <p className='n1'>Get support for tasks like grocery shopping, babysitting, or pet care. Build strong, helpful connections in your community.</p>
         <button className="ser-card-btn">Help Now</button>
         <div className="ser-card-advantages">
           <ul>
@@ -164,7 +164,7 @@ const Main = () => {
       <div className="ser-card4-desc">
         <h1>Get Involved Today</h1>
         <p className="ser-card4-main">Make Friends, Make an Impact</p>
-        <p>Join cleanups, workshops, or cultural events. Build meaningful connections while creating positive change.</p>
+        <p className='n1'>Join cleanups, workshops, or cultural events. Build meaningful connections while creating positive change.</p>
         <button className="ser-card-btn">Join Us</button>
         <div className="ser-card-advantages">
           <ul>
@@ -182,7 +182,7 @@ const Main = () => {
       <div className="ser-card5-desc">
         <h1>Declutter for Good</h1>
         <p className="ser-card5-main">Find, Share, and Reuse Responsibly</p>
-        <p>Give away or find free/low-cost items. Reduce waste, embrace minimalism, and support a circular economy.</p>
+        <p className='n1'>Give away or find free/low-cost items. Reduce waste, embrace minimalism, and support a circular economy.</p>
         <button className="ser-card-btn">Declutter Now</button>
         <div className="ser-card-advantages">
           <ul>
@@ -207,7 +207,7 @@ const Main = () => {
       <div className="ser-card6-desc">
         <h1>Stay Alert, Stay Safe</h1>
         <p className="ser-card6-main">Your Local News, Delivered</p>
-        <p>Stay informed with real-time updates on news, events, and alerts in your area. Stay prepared and aware.</p>
+        <p className='n1'>Stay informed with real-time updates on news, events, and alerts in your area. Stay prepared and aware.</p>
         <button className="ser-card-btn">Learn More</button>
         <div className="ser-card-advantages">
           <ul>

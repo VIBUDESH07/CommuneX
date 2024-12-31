@@ -26,7 +26,7 @@ code {
   top:0;
   z-index: 1000;
   background-color: white;
-  box-shadow: 0px 1px 10px black;
+  box-shadow: 0px 1px 10px rgb(169, 167, 167);
 }
 
 .header-nav {
@@ -88,6 +88,7 @@ code {
   width: 100%;
   background-color: #f4f4f4d4;
   overflow: hidden;
+  
 }
 
 .greetings {
@@ -109,6 +110,7 @@ code {
 .greetings h2{
   font-size: 60px;
   text-align: center;
+
 }
 .greetings strong{
  
@@ -121,11 +123,11 @@ code {
 }
 .gradient {
   position: absolute;
-  top: 50%;
+  top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 500px;
-  height: 500px;
+  height: 400px;
   background: radial-gradient(circle, rgb(0, 255, 0) 100%, rgb(248, 248, 248) 0%);
   filter: blur(60px);
   z-index: -1;
@@ -134,6 +136,7 @@ code {
 .n{
   text-align: center;
   font-size: 20px;
+  line-height: 30px;
 }
 .rotating-image {
  
@@ -219,6 +222,7 @@ code {
 .n1{
   text-align: center;
   font-size: 20px;
+  line-height: 30px;
 }
 .ser-tit{
  display:flex;
@@ -334,6 +338,7 @@ code {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 .ser-card4-main{
   font-size: 35px;
   font-weight: bolder;
@@ -507,6 +512,7 @@ code {
 .ser-rem span{
   font-size:30px;
 }
+
 /* Testimonials Section */
 .testimonials {
   display: flex;
