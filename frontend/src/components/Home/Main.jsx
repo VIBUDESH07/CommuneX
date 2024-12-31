@@ -27,15 +27,6 @@ import rep from './Svg/—Pngtree—man standing to say hello_7670366.png'
 import globe from './Svg/earth.ffd19520c4086c9eb848.png'
 import n7 from './Svg/—Pngtree—red triangle alert icon_4750635.png'
 const Main = () => {
-  useEffect(() => {
-    // Dynamically add scroll-animate class to all sections
-    const sections = document.querySelectorAll('div'); // Adjust selector as needed
-    sections.forEach((section) => {
-      section.classList.add('scroll-animate');
-    });
-  }, []);
-
-  useScrollAnimations(); // Attach scroll animations
 
   return (
     <div className='main'>
@@ -81,6 +72,9 @@ const Main = () => {
       <h3>Explore Services</h3>
       <img src={giphy}></img>
       
+    </div>
+    <div>
+      <p className="n">Source management ensures seamless collaboration, precise change tracking, and code integrity from development to deployment.</p>
     </div>
     <div className="ser-tit-greet">
     <img src={hand}/>

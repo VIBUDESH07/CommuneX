@@ -5,7 +5,6 @@ import { FaBars } from 'react-icons/fa'
 const Head = () => {
   return (
     <div className="header">
-      <FaBars />
       <h2>SkyConnect</h2>
       <div className='header-nav'>
         <Link to="/about">About</Link>

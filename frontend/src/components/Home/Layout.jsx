@@ -4,14 +4,12 @@ import Head from './Head';
 import Main from './Main';
 
 const Layout = () => {
-  useScrollAnimations(); // Activate scroll animations
 
   return (
     <div>
-      <Head className="fixed-header" />
-      <div>
+       <Head />
         <Main />
-      </div>
+    
     </div>
   );
 };

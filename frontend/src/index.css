@@ -22,21 +22,12 @@ code {
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  box-shadow: 0px 2px 10px black;
-}
-
-
-.fixed-header {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  top:0;
   z-index: 1000;
-  background-color: white; /* Adjust as needed */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+  background-color: white;
+  box-shadow: 0px 1px 10px black;
 }
-
-
 
 .header-nav {
   display: flex;
@@ -89,7 +80,6 @@ code {
 
 /* Main Section */
 .main {
-  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -103,9 +93,10 @@ code {
 .greetings {
   display: flex;
   border-radius: 7px;
+  margin-top: 3rem;
   flex-direction: row;
   width: 95%;
-  padding: 2rem;
+  padding: 1rem;
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -128,17 +119,18 @@ code {
 .greetings h3{
   font-size: 20px;
 }
-
 .gradient {
   position: absolute;
-  top: 0%;
-  left:13%;
-  width: 800px;
-  height: 700px;
-  background: radial-gradient(circle, rgba(30, 255, 0, 0.5) 0%, hwb(170 4% 7% / 0) 50%);
-  filter: blur(50px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgb(0, 255, 0) 100%, rgb(248, 248, 248) 0%);
+  filter: blur(60px);
   z-index: -1;
 }
+
 .n{
   text-align: center;
   font-size: 20px;
@@ -241,7 +233,7 @@ code {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap:8rem;
+  gap:4rem;
 }
 
 .reverse {
@@ -249,7 +241,7 @@ code {
 }
 
 .ser-tit-main img{
-  height:80px;
+  height:70px;
   border-radius: 50px;
 }
 
