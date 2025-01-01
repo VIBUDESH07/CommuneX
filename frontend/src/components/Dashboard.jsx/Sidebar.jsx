@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaUserFriends, FaHandshake, FaToolbox, FaUsers, FaCalendarAlt, FaBell, FaDonate } from 'react-icons/fa';
+import { FaUserFriends, FaHandshake, FaToolbox, FaUsers, FaCalendarAlt, FaBell, FaDonate, FaHome } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
@@ -9,6 +9,12 @@ const Sidebar = () => {
        <h1> SkyConnect </h1>
       </div>
       <div className='side-bar'>
+      <Link to="/dash">
+        <div className='sidebar-con'>
+          <FaHome />
+          Home
+        </div>
+        </Link>
         <Link to="/dash/friend">
         <div className='sidebar-con'>
           <FaUserFriends />

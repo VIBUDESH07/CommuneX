@@ -6,21 +6,21 @@ import { useNavigate } from 'react-router-dom';
 const SelectFriend = () => {
   const [friends, setFriends] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [user,setUser]=useState(null);
-  const username = localStorage.getItem('username'); // Corrected key
- const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+  const email = localStorage.getItem('email');  // Now fetching email from localStorage
+  const navigate = useNavigate();
+
   // Fetch friends from the database on component mount
   useEffect(() => {
     const fetchFriends = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/fri/friends?username=${username}` // Corrected URL
+          `http://localhost:5000/fri/friends?email=${email}`  // Updated query param
         );
-       
         setFriends(response.data.friends);
-        setUser(response.data.user)
-        console.log(user)
-        console.log(friends)
+        
+        setUser(response.data.user);
+        console.log(response.data.user)  // Set user info
       } catch (error) {
         console.error('Error fetching friends:', error);
       } finally {
@@ -28,16 +28,16 @@ const SelectFriend = () => {
       }
     };
 
-    if (username) {
+    if (email) {
       fetchFriends();
     } else {
-      console.error('Username is not found in localStorage.');
+      console.error('Email is not found in localStorage.');
     }
-  }, [username]);
-  
- const addFriend =() =>{
-        navigate('/dash/add' ,{state:{user}})
- }
+  }, [email]);
+
+  const startChat = (friendId) => {
+    navigate(`/dash/chat/${friendId}`, { state: { user, friendId } });  // Pass email and friend ID
+  };
 
   return (
     <div className="add-friend">
@@ -47,8 +47,9 @@ const SelectFriend = () => {
       ) : friends.length > 0 ? (
         <ul className="friend-list">
           {friends.map((friend) => (
-            <li key={friend._id} className="friend-item">
+            <li key={friend.id} className="friend-item">  {/* Use friend.id here */}
               <span>{friend.username}</span>
+              <button onClick={() => startChat(friend._id)}>Chat</button>  {/* Pass friend.id */}
             </li>
           ))}
         </ul>
@@ -56,7 +57,7 @@ const SelectFriend = () => {
         <p>No friends yet. Add some!</p>
       )}
       <div className="add-friend-button">
-        <button onClick={addFriend}>
+        <button onClick={() => navigate('/dash/add', { state: { user } })}>
           <FaPlus size={20} /> Add Friend
         </button>
       </div>

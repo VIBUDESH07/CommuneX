@@ -1,13 +1,14 @@
 const User = require('../schemas/User'); 
 
 exports.getFriends = async (req, res) => {
-        const { username } = req.query;
-        if (!username) {
+        const { email } = req.query;
+        console.log(email)
+        if (!email) {
           return res.status(400).json({ error: 'Username is required.' });
         }
        
         try {
-          const user = await User.findOne({ email:username });
+          const user = await User.findOne({ email });
           if (!user) {
             return res.status(404).json({ error: 'User not found.' });
           }
@@ -81,7 +82,7 @@ exports.getCommunityUsers = async (req, res) => {
   };
   exports.getAllUsers = async (req, res) => {
     try {
-      const users = await User.find({}, 'username email localCommunity'); // Include the desired fields
+      const users = await User.find({}, 'username email localCommunity skills'); // Include the desired fields
       res.status(200).json(users);
     } catch (error) {
       console.error('Error fetching users:', error);

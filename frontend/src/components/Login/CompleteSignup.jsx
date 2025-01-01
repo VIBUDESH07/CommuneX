@@ -193,7 +193,7 @@ const CompleteSignup = () => {
     username: '',
   });
   useEffect(() => {
-    const username = localStorage.getItem('username') || '';
+    const username = localStorage.getItem('email') || '';
     setFormData((prevData) => ({ ...prevData, username }));
   }, []);
   const [talukOptions, setTalukOptions] = useState([]);

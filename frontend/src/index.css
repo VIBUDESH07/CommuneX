@@ -854,7 +854,7 @@ gap:1rem;
   width:100%;
   justify-content: center;
   gap:2rem;
-  box-shadow: 0 2px 10px black;
+  box-shadow: 0 1px 10px rgb(226, 226, 226);
   border-radius: 7px;
   padding:1rem;
 }
@@ -870,6 +870,7 @@ gap:1rem;
   padding:1rem;
   border-radius: 7px;
   width:100%;
+  border:none;
   margin-right: 9rem;
 }
 .login-btn{
@@ -1391,4 +1392,47 @@ h2 {
   .submit-button {
     font-size: 14px;
   }
+}
+
+/* Add Friend*/
+.user-list{
+  display: flex;
+  flex-direction: column;
+  gap:1rem;
+  width:100%;
+  font-size: 18px;
+  list-style-type: none;
+}
+.user-item{
+  display:flex;
+  flex-direction: row;
+  width:50%;
+  gap:1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.add-friend-btn{
+  padding:10px;
+  border: none;
+  background-color: white;
+  border-radius: 10px;
+}
+.add-friend-btn:hover{
+  transition: 0.3s ease-in;
+  background-image:linear-gradient(to bottom right,rgb(187, 247, 187),rgb(0, 255, 34));
+  
+}
+.search-bar{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width:70%;
+}
+.search-input{
+  padding:20px;
+  width:100%;
+  border:none;
+  border-radius:20px;
+  font-size: 15px;
 }

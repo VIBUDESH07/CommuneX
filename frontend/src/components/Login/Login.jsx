@@ -29,7 +29,7 @@ const Login = () => {
      {
       toast.success(response.data.message); 
       localStorage.setItem("isLoggedIn", "true");
-      localStorage.setItem("username", email);
+      localStorage.setItem("email", email);
       const checkResponse = await axios.post("http://localhost:5000/api/check_complete", { email });
       if (checkResponse.data.isComplete) {
         navigate('/dash');  
