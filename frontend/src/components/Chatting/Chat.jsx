@@ -6,19 +6,37 @@ const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
   const { state } = useLocation();
-  const { user, friendId } = state;  // Get user and friend info from state
+  const { user, friendId } = state;
 
-  const email = user.email;  // Use user's email for fetching messages
+  const email = user.email;
 
   useEffect(() => {
-    // Fetch previous messages between the user and the selected friend
     const fetchMessages = async () => {
       try {
-        console.log(email,friendId)
         const response = await axios.get(
-          `http://localhost:5000/message/getmessage?email=${email}&friendId=${friendId}` 
+          `http://localhost:5000/message/getmessage?email=${email}&friendId=${friendId}`
         );
-        setMessages(response.data.messages);
+
+        // Process and merge the sender, receiver, content, and timestamp
+        const processedMessages = response.data.messages.map((msg) => {
+          const { sender, receiver } = msg;
+          const { content, timestamp } = msg._doc || {};
+          return {
+            sender,
+            receiver,
+            content,
+            timestamp,
+          };
+        });
+
+        // Sort messages by timestamp
+        const sortedMessages = processedMessages.sort((a, b) => {
+          const timeA = new Date(a.timestamp || 0);
+          const timeB = new Date(b.timestamp || 0);
+          return timeA - timeB;
+        });
+
+        setMessages(sortedMessages);
       } catch (error) {
         console.error('Error fetching messages:', error);
       }
@@ -31,15 +49,19 @@ const Chat = () => {
     if (newMessage.trim() === '') return;
 
     try {
-      const response = await axios.post(
-        'http://localhost:5000/message/send',
-        {
-          senderEmail: email,  
-          receiverId: friendId,  
-          content: newMessage,
-        }
+      const response = await axios.post('http://localhost:5000/message/send', {
+        senderEmail: email,
+        receiverId: friendId,
+        content: newMessage,
+      });
+
+      const newMsg = response.data.message._doc || response.data.message;
+      setMessages((prevMessages) =>
+        [...prevMessages, { ...newMsg, sender: email, receiver: friendId }].sort(
+          (a, b) => new Date(a.timestamp || 0) - new Date(b.timestamp || 0)
+        )
       );
-      setMessages([...messages, response.data.message]);
+
       setNewMessage('');
     } catch (error) {
       console.error('Error sending message:', error);
@@ -47,16 +69,24 @@ const Chat = () => {
   };
 
   return (
-    <div className="chat">
+    <div className="chat-container">
       <h2>Chat with {friendId}</h2>
-      <div className="messages">
-        {messages.map((message) => (
-          <div key={message.id} className={`message ${message.senderEmail === email ? 'sent' : 'received'}`}>
+      <div className="messages-container">
+        {messages.map((message, index) => (
+          <div
+            key={index}
+            className={`message ${
+              message.sender === email ? 'message-sent' : 'message-received'
+            }`}
+          >
             <p>{message.content}</p>
+            <span className="timestamp">
+              {new Date(message.timestamp).toLocaleTimeString()}
+            </span>
           </div>
         ))}
       </div>
-      <div className="message-input">
+      <div className="message-input-container">
         <input
           type="text"
           value={newMessage}
