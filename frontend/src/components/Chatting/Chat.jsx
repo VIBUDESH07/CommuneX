@@ -1,71 +1,92 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useLocation } from 'react-router-dom';
+import { io } from 'socket.io-client';
+
+const socket = io('http://localhost:5000'); // Replace with your server's address
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
   const { state } = useLocation();
   const { user, friendId } = state;
-
   const email = user.email;
+  const receiveremail=friendId
 
   useEffect(() => {
-    const fetchMessages = async () => {
-      try {
-        const response = await axios.get(
-          `http://localhost:5000/message/getmessage?email=${email}&friendId=${friendId}`
-        );
-
-        // Process and merge the sender, receiver, content, and timestamp
-        const processedMessages = response.data.messages.map((msg) => {
-          const { sender, receiver } = msg;
-          const { content, timestamp } = msg._doc || {};
-          return {
-            sender,
-            receiver,
-            content,
-            timestamp,
-          };
-        });
-
-        // Sort messages by timestamp
-        const sortedMessages = processedMessages.sort((a, b) => {
-          const timeA = new Date(a.timestamp || 0);
-          const timeB = new Date(b.timestamp || 0);
-          return timeA - timeB;
-        });
-
-        setMessages(sortedMessages);
-      } catch (error) {
-        console.error('Error fetching messages:', error);
-      }
+    // Fetch messages immediately when the component mounts
+    const fetchMessages = () => {
+      socket.emit('fetchMessages', { email, friendId });
     };
 
-    fetchMessages();
-  }, [email, friendId]);
+    socket.on('connect', () => {
+      console.log('Connected to socket server');
+      fetchMessages();
+    });
 
-  const handleSendMessage = async () => {
-    if (newMessage.trim() === '') return;
-
-    try {
-      const response = await axios.post('http://localhost:5000/message/send', {
-        senderEmail: email,
-        receiverId: friendId,
-        content: newMessage,
+    // Listen for fetched messages from the server
+    socket.on('messagesFetched', (data) => {
+      const processedMessages = data.messages.map((msg) => {
+        const { sender, receiver } = msg;
+        const { content, timestamp } = msg._doc || {};
+        return {
+          sender,
+          receiver,
+          content,
+          timestamp,
+        };
       });
 
-      const newMsg = response.data.message._doc || response.data.message;
-      setMessages((prevMessages) =>
-        [...prevMessages, { ...newMsg, sender: email, receiver: friendId }].sort(
-          (a, b) => new Date(a.timestamp || 0) - new Date(b.timestamp || 0)
-        )
-      );
+      const sortedMessages = processedMessages.sort((a, b) => {
+        const timeA = new Date(a.timestamp || 0);
+        const timeB = new Date(b.timestamp || 0);
+        return timeA - timeB;
+      });
 
-      setNewMessage('');
-    } catch (error) {
-      console.error('Error sending message:', error);
-    }
+      setMessages(sortedMessages);
+    });
+
+    // Listen for incoming new messages
+    socket.on('newMessage', (message) => {
+      setMessages((prevMessages) => {
+        const updatedMessages = [...prevMessages, message].sort((a, b) => new Date(a.timestamp || 0) - new Date(b.timestamp || 0));
+        return updatedMessages;
+      });
+    });
+
+    // Cleanup on unmount
+    return () => {
+      socket.off('messagesFetched');
+      socket.off('newMessage');
+    };
+  }, [email, friendId]);
+
+  const handleSendMessage = () => {
+    if (newMessage.trim() === '') return;
+
+    const messageData = {
+      senderEmail: email,
+      receiverId: friendId,
+      content: newMessage,
+    };
+
+    // Emit message to server
+    socket.emit('sendMessage', messageData);
+
+    // Add the message locally to the chat immediately
+    const messageToAdd = {
+      sender: email,
+      receiver: friendId,
+      content: newMessage,
+      timestamp: new Date().toISOString(),
+    };
+
+    setMessages((prevMessages) => {
+      const updatedMessages = [...prevMessages, messageToAdd].sort((a, b) => new Date(a.timestamp || 0) - new Date(b.timestamp || 0));
+      return updatedMessages;
+    });
+
+    // Clear input after sending
+    setNewMessage('');
   };
 
   return (
@@ -75,14 +96,10 @@ const Chat = () => {
         {messages.map((message, index) => (
           <div
             key={index}
-            className={`message ${
-              message.sender === email ? 'message-sent' : 'message-received'
-            }`}
+            className={`message ${message.sender === email ? 'message-sent' : 'message-received'}`}
           >
             <p>{message.content}</p>
-            <span className="timestamp">
-              {new Date(message.timestamp).toLocaleTimeString()}
-            </span>
+            <span className="timestamp">{new Date(message.timestamp).toLocaleTimeString()}</span>
           </div>
         ))}
       </div>
