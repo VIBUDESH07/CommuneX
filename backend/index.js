@@ -4,45 +4,35 @@ const http = require('http');
 const { Server } = require('socket.io');
 const cors = require('cors');
 
-// Import routes
 const userRoutes = require('./routes/UserRoutes'); 
 const friendRoutes = require('./routes/FriendRoutes');
 const messageRoutes = require('./routes/MessagesRoutes');
 
-// Import User schema
-const User = require('./schemas/User'); // Adjust the path
-
+const User = require('./schemas/User'); 
 const app = express();
-const server = http.createServer(app); // Create an HTTP server
+const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: '*', // Allow all origins
+    origin: '*', 
     methods: ['GET', 'POST'],
   },
 });
 
-// Middleware
 app.use(express.json());
 app.use(cors());
-
-// Register API routes
 app.use('/api', userRoutes);
 app.use('/fri', friendRoutes);
 app.use('/message', messageRoutes); 
 
-// MongoDB connection
 mongoose
   .connect('mongodb://localhost:27017/community', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.error('Error connecting to MongoDB:', err));
 
-// Socket.io setup
-const userSocketMap = new Map(); // Map to store user email -> socket ID
-
+const userSocketMap = new Map();
 io.on('connection', (socket) => {
   console.log('User connected:', socket.id);
 
-  // Register user with socket
   socket.on('register', ({ email }) => {
     if (email) {
       userSocketMap.set(email, socket.id);
@@ -50,7 +40,6 @@ io.on('connection', (socket) => {
     }
   });
 
-  // Fetch messages
   socket.on('fetchMessages', async ({ email, friendId }) => {
     if (!email || !friendId) {
       return socket.emit('error', { error: 'Email and friendId are required.' });
@@ -67,7 +56,6 @@ io.on('connection', (socket) => {
         return socket.emit('error', { error: 'Friend not found.' });
       }
 
-      // Retrieve messages
       const userMessages =
         user.friends
           .find((f) => f.friend.toString() === friendId)
@@ -97,7 +85,6 @@ io.on('connection', (socket) => {
     }
   });
 
-  // Send message
   socket.on('sendMessage', async ({ senderEmail, receiverId, content }) => {
     if (!senderEmail || !receiverId || !content) {
       return socket.emit('error', { error: 'All fields are required.' });
@@ -114,14 +101,12 @@ io.on('connection', (socket) => {
         return socket.emit('error', { error: 'Friend not found in the user\'s friend list.' });
       }
 
-      // Create message
       const timestamp = new Date();
       const message = { content, timestamp };
 
       friend.messages.push(message);
       await user.save();
 
-      // Notify sender and receiver
       socket.emit('messageSent', { message });
       const receiverSocketId = userSocketMap.get(receiverId);
       if (receiverSocketId) {
@@ -133,7 +118,6 @@ io.on('connection', (socket) => {
     }
   });
 
-  // Handle user disconnection
   socket.on('disconnect', () => {
     for (const [email, socketId] of userSocketMap.entries()) {
       if (socketId === socket.id) {
@@ -145,7 +129,6 @@ io.on('connection', (socket) => {
   });
 });
 
-// Start the server
 const PORT = 5000;
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

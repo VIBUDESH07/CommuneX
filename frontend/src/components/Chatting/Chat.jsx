@@ -1,62 +1,82 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { io } from 'socket.io-client';
-
-const socket = io('http://localhost:5000'); // Replace with your server's address
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
+  const socketRef = useRef(null);
   const { state } = useLocation();
   const { user, friendId } = state;
   const email = user.email;
-  const receiveremail=friendId
+
+  const formatTimestamp = (timestamp) => {
+    const messageDate = new Date(timestamp);
+    const today = new Date();
+    const yesterday = new Date();
+    yesterday.setDate(today.getDate() - 1);
+
+    if (messageDate.toDateString() === today.toDateString()) {
+      return 'Today';
+    } else if (messageDate.toDateString() === yesterday.toDateString()) {
+      return 'Yesterday';
+    } else {
+       return `${messageDate.getDate().toString().padStart(2, '0')}/${(messageDate.getMonth() + 1)
+        .toString()
+        .padStart(2, '0')}/${messageDate.getFullYear()}`;
+    }
+  };
+
+   const isNewDate = (prevDate, currentDate) => {
+    if (!prevDate) return true;
+    return new Date(prevDate).toDateString() !== new Date(currentDate).toDateString();
+  };
 
   useEffect(() => {
-    // Fetch messages immediately when the component mounts
-    const fetchMessages = () => {
-      socket.emit('fetchMessages', { email, friendId });
-    };
+    socketRef.current = io('http://localhost:5000'); // Replace with your server's address
 
-    socket.on('connect', () => {
+    socketRef.current.on('connect', () => {
       console.log('Connected to socket server');
-      fetchMessages();
+    socketRef.current.emit('register', { email });
+
+       socketRef.current.emit('fetchMessages', { email, friendId });
     });
 
-    // Listen for fetched messages from the server
-    socket.on('messagesFetched', (data) => {
+    socketRef.current.on('messagesFetched', (data) => {
       const processedMessages = data.messages.map((msg) => {
+        const { content, timestamp } = msg._doc || msg;
         const { sender, receiver } = msg;
-        const { content, timestamp } = msg._doc || {};
         return {
           sender,
           receiver,
           content,
-          timestamp,
+          timestamp: timestamp || new Date().toISOString(),
         };
       });
 
-      const sortedMessages = processedMessages.sort((a, b) => {
-        const timeA = new Date(a.timestamp || 0);
-        const timeB = new Date(b.timestamp || 0);
-        return timeA - timeB;
-      });
-
+      const sortedMessages = processedMessages.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
       setMessages(sortedMessages);
     });
 
-    // Listen for incoming new messages
-    socket.on('newMessage', (message) => {
-      setMessages((prevMessages) => {
-        const updatedMessages = [...prevMessages, message].sort((a, b) => new Date(a.timestamp || 0) - new Date(b.timestamp || 0));
-        return updatedMessages;
-      });
+      socketRef.current.on('newMessage', (message) => {
+      const { content, timestamp } = message._doc || message;
+      const { sender, receiver } = message;
+
+      const newMessage = {
+        sender,
+        receiver,
+        content,
+        timestamp: timestamp || new Date().toISOString(),
+      };
+
+      setMessages((prevMessages) =>
+        [...prevMessages, newMessage].sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp))
+      );
     });
 
-    // Cleanup on unmount
     return () => {
-      socket.off('messagesFetched');
-      socket.off('newMessage');
+      socketRef.current.disconnect();
+      socketRef.current = null;
     };
   }, [email, friendId]);
 
@@ -69,10 +89,10 @@ const Chat = () => {
       content: newMessage,
     };
 
-    // Emit message to server
-    socket.emit('sendMessage', messageData);
+    // Emit the message to the server
+    socketRef.current.emit('sendMessage', messageData);
 
-    // Add the message locally to the chat immediately
+    // Add the message locally to the chat
     const messageToAdd = {
       sender: email,
       receiver: friendId,
@@ -80,28 +100,43 @@ const Chat = () => {
       timestamp: new Date().toISOString(),
     };
 
-    setMessages((prevMessages) => {
-      const updatedMessages = [...prevMessages, messageToAdd].sort((a, b) => new Date(a.timestamp || 0) - new Date(b.timestamp || 0));
-      return updatedMessages;
-    });
-
-    // Clear input after sending
-    setNewMessage('');
+    setMessages((prevMessages) =>
+      [...prevMessages, messageToAdd].sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp))
+    );
+    setNewMessage(''); // Clear the input
   };
 
   return (
     <div className="chat-container">
       <h2>Chat with {friendId}</h2>
       <div className="messages-container">
-        {messages.map((message, index) => (
-          <div
-            key={index}
-            className={`message ${message.sender === email ? 'message-sent' : 'message-received'}`}
-          >
-            <p>{message.content}</p>
-            <span className="timestamp">{new Date(message.timestamp).toLocaleTimeString()}</span>
-          </div>
-        ))}
+        {messages.map((message, index) => {
+          const showDateHeader = isNewDate(
+            messages[index - 1]?.timestamp,
+            message.timestamp
+          );
+
+          return (
+            <React.Fragment key={index}>
+              {showDateHeader && (
+                <div className="date-header">
+                  {formatTimestamp(message.timestamp)}
+                </div>
+              )}
+              <div
+                className={`message ${message.sender === email ? 'message-sent' : 'message-received'}`}
+              >
+                <p>{message.content}</p>
+                <span className="timestamp">
+                  {new Date(message.timestamp).toLocaleTimeString([], {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                  })}
+                </span>
+              </div>
+            </React.Fragment>
+          );
+        })}
       </div>
       <div className="message-input-container">
         <input
