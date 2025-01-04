@@ -33,7 +33,7 @@ const userSocketMap = new Map();
 io.on('connection', (socket) => {
   console.log('User connected:', socket.id);
 
-  socket.on('register', ({ email }) => {
+  socket.on('register', ({ email,friendId }) => {
     if (email) {
       userSocketMap.set(email, socket.id);
       console.log(`User registered: ${email} -> Socket ID: ${socket.id}`);

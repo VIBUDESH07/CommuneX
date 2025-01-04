@@ -27,6 +27,7 @@ const Chat = () => {
     }
   };
 
+
    const isNewDate = (prevDate, currentDate) => {
     if (!prevDate) return true;
     return new Date(prevDate).toDateString() !== new Date(currentDate).toDateString();
@@ -37,7 +38,7 @@ const Chat = () => {
 
     socketRef.current.on('connect', () => {
       console.log('Connected to socket server');
-    socketRef.current.emit('register', { email });
+    socketRef.current.emit('register', { email ,friendId});
 
        socketRef.current.emit('fetchMessages', { email, friendId });
     });
