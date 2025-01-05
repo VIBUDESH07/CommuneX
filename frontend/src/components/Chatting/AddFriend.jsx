@@ -22,7 +22,7 @@ const AddFriend = () => {
 
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/fri/allusers');
+        const response = await axios.get(`http://localhost:5000/fri/allusers?username=${currentUser.email}`);
         console.log(response.data)
         const filteredUss = response.data.filter(
           (user) =>
@@ -62,13 +62,13 @@ const AddFriend = () => {
     }
   };
 
-  const handleAddFriend = async (friendEmail) => {
+  const handleAddFriend = async (toEmail) => {
     try {
       await axios.post('http://localhost:5000/fri/addfriend', {
-        username: currentUser.email, // Current user's email
-        friendEmail, // Email of the friend to add
+        fromEmail: currentUser.email, // Current user's email
+        toEmail, // Email of the friend to add
       });
-      alert(`${friendEmail} added as a friend!`);
+      alert(`${toEmail} added as a friend!`);
     } catch (err) {
       console.error('Error adding friend:', err);
       alert('Failed to add friend. Try again.');

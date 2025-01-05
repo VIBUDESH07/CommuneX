@@ -492,13 +492,14 @@ code {
 .ser-card-advantages ul{
   display: flex;
   flex-direction: row;
+  
   gap:2rem;
   
 }
 .ser-card-advantages li{
   display: flex;
   flex-direction: column;
-  
+  width:100px;
   background-color: white;
   padding:1rem;
   border-radius: 10px;
@@ -1508,4 +1509,115 @@ h2 {
 
 .message-input-container button:hover {
   background-color: #005bb5;
+}
+
+/*  Friend request */
+/* Container for the entire page */
+.friend-requests-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7fafc;
+}
+
+/* Main content area */
+.friend-requests-card {
+  background-color: #ffffff;
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Title for the friend requests */
+.friend-requests-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #3182ce;
+  text-align: center;
+}
+
+/* Messages for success/error */
+.friend-requests-message {
+  margin-bottom: 16px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.friend-requests-message.success {
+  color: #38a169;
+}
+
+.friend-requests-message.error {
+  color: #e53e3e;
+}
+
+/* List of friend requests */
+.friend-requests-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Each friend request item */
+.friend-request-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+/* Friend's email/text */
+.friend-request-email {
+  font-size: 16px;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+/* Button group for Accept/Reject */
+.friend-request-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+/* Individual button */
+.friend-request-button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Accept button styling */
+.friend-request-button.accept {
+  background-color: #48bb78;
+  color: white;
+}
+
+.friend-request-button.accept:hover {
+  background-color: #38a169;
+}
+
+/* Reject button styling */
+.friend-request-button.reject {
+  background-color: #f56565;
+  color: white;
+}
+
+.friend-request-button.reject:hover {
+  background-color: #e53e3e;
+}
+
+/* No requests message */
+.no-requests-message {
+  font-size: 16px;
+  color: #718096;
+  text-align: center;
 }

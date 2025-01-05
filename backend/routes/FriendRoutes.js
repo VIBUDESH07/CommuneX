@@ -5,7 +5,11 @@ const router = express.Router();
 
 router.get('/friends', friendController.getFriends);
 
-router.post('/addfriend', friendController.addFriend);
+router.post('/addfriend', friendController.sendFriendRequest);
 
 router.get('/allusers',friendController.getAllUsers)
+
+router.get('/friend/requests',friendController.getPendingRequests)
+router.post('/handleRequest',friendController.respondToFriendRequest)
 module.exports = router;
+
