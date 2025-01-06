@@ -1621,3 +1621,64 @@ h2 {
   color: #718096;
   text-align: center;
 }
+
+/*                                                        Skills.jsx                                                 */
+
+.skill-container {
+  text-align: center;
+  padding: 20px;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+}
+
+.search-container {
+  margin: 20px;
+}
+
+.search-container input {
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.skill-card {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+}
+
+.skill-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.skill-card .info {
+  padding: 15px;
+}
+
+.skill-card .info h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}

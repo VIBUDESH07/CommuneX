@@ -8,6 +8,7 @@ import SelectFriend from '../Chatting/SelectFriend';
 import AddFriend from '../Chatting/AddFriend';
 import Chat from '../Chatting/Chat';
 import FriendRequests from '../Chatting/Request';
+import Skill from '../Skills/Skill';
 
 
 
@@ -23,6 +24,8 @@ const Dashboard = () => {
             <Route path="/add" element={<AddFriend/>}/>
             <Route path="/chat/:friendId" element={<Chat />} />
             <Route path="/friend/request" element={<FriendRequests />} />
+            <Route path="/skills" element={<Skill />} />
+
           </Routes>
         </div>
       </div>

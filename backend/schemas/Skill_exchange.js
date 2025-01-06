@@ -14,7 +14,7 @@ const skillSchema = new mongoose.Schema({
     },
     matchRequests: [{
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User', // Users who requested skill exchanges
+      ref: 'User', 
     }],
     createdAt: {
       type: Date,
@@ -22,5 +22,5 @@ const skillSchema = new mongoose.Schema({
     },
   });
   
-  module.exports = mongoose.model('Skill', skillSchema);
+module.exports = mongoose.model('Skill', skillSchema);
   

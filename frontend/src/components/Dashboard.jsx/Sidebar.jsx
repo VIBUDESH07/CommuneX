@@ -21,7 +21,7 @@ const Sidebar = () => {
           Friends
         </div>
         </Link>
-        <Link to="">
+        <Link to="/dash/skills">
         <div className='sidebar-con'>
           <FaHandshake />
           Skill Exchange
