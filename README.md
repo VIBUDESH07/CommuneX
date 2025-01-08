@@ -5,7 +5,7 @@
 ![SkyConnect Banner](https://via.placeholder.com/800x200.png?text=SkyConnect+-+Seamless+Community+Connections)
 
 ### **Description**  
-SkyConnect is a platform designed to foster seamless community interaction and IoT connectivity. It enables users to connect with neighbors, share resources, and manage IoT devices for a smarter living experience.
+SkyConnect is a platform designed to foster seamless community interaction and IoT connectivity. It enables users to connect with neighbors, share resources, and manage IoT devices for a smarter.
 
 ---
 
