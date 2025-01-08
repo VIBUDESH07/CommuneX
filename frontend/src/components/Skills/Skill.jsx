@@ -54,7 +54,6 @@ function Skill() {
 
   const handleSkillClick = (skillName) => {
     if (email) {
-      // Send the skill and user email to the API
       const data = {
         skill: skillName,
         email: email,
