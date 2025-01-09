@@ -10,18 +10,23 @@ exports.getSkillsByCommunityAndArea = async (req, res) => {
             return res.status(404).json({ message: 'User not found' });
         }
 
-        // Find users with matching skills, community, and area
+        // Find users with matching skills and community
         const matchingUsers = await User.find({
             skills: skill, // Assuming `skills` is an array in the schema
             community: community,
-            area: area,
-        });
+        })
+            .sort({ "address.area": 1 }); // Sort by `area` in the `address` field
+
+        // Filter the users by the `area` if specified
+        const filteredUsers = area 
+            ? matchingUsers.filter(user => user.address?.area === area)
+            : matchingUsers;
 
         // Return the list of matching users
-        if (matchingUsers.length > 0) {
+        if (filteredUsers.length > 0) {
             return res.status(200).json({
                 message: 'Matching users found',
-                data: matchingUsers,
+                data: filteredUsers,
             });
         } else {
             return res.status(404).json({
