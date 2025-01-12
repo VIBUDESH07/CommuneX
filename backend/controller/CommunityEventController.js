@@ -3,67 +3,93 @@ const router = express.Router();
 
 // Mock database for demonstration purposes
 let events = [];
+let users = []; // Mock users database for user management
 
-// Get all community events
-router.get('/events', (req, res) => {
-    if (events.length === 0) {
-        return res.status(200).json({ success: true, message: 'No events found. Start by adding one to connect with the community!', events });
+// Middleware to check if user exists
+const validateUser = (req, res, next) => {
+    const { userId } = req.body;
+    if (!users.some(user => user.id === userId)) {
+        return res.status(404).json({ success: false, message: 'User not found. Please register first.' });
     }
-    res.status(200).json({ success: true, events });
+    next();
+};
+
+// Get all events for a specific user
+router.get('/events', (req, res) => {
+    const { userId } = req.query;
+
+    if (!userId) {
+        return res.status(400).json({ success: false, message: 'User ID is required to fetch events.' });
+    }
+
+    const userEvents = events.filter(event => event.userId === userId);
+    if (userEvents.length === 0) {
+        return res.status(200).json({ success: true, message: 'No events found for this user. Start by adding one!', events: userEvents });
+    }
+
+    res.status(200).json({ success: true, events: userEvents });
 });
 
-// Get a specific event by ID
+// Get a specific event by ID for a user
 router.get('/events/:id', (req, res) => {
-    const event = events.find(e => e.id === req.params.id);
+    const { userId } = req.query;
+    const { id } = req.params;
+
+    if (!userId) {
+        return res.status(400).json({ success: false, message: 'User ID is required to fetch the event.' });
+    }
+
+    const event = events.find(e => e.id === id && e.userId === userId);
     if (event) {
         res.status(200).json({ success: true, event });
     } else {
-        res.status(404).json({ success: false, message: 'Event not found. It might have been removed or never existed.' });
+        res.status(404).json({ success: false, message: 'Event not found for this user.' });
     }
 });
 
 // Create a new community event
-router.post('/events', (req, res) => {
-    const { id, name, description, date, location } = req.body;
+router.post('/events', validateUser, (req, res) => {
+    const { id, name, description, date, location, userId } = req.body;
 
-    if (!id || !name || !description || !date || !location) {
-        return res.status(400).json({ success: false, message: 'All fields are required to create a new event. Please provide complete details.' });
+    if (!id || !name || !description || !date || !location || !userId) {
+        return res.status(400).json({ success: false, message: 'All fields are required to create a new event.' });
     }
 
     if (events.some(e => e.id === id)) {
         return res.status(400).json({ success: false, message: 'An event with this ID already exists. Please use a unique ID.' });
     }
 
-    const newEvent = { id, name, description, date, location };
+    const newEvent = { id, name, description, date, location, userId };
     events.push(newEvent);
-    res.status(201).json({ success: true, message: 'Event created successfully! Share this with your community.', event: newEvent });
+    res.status(201).json({ success: true, message: 'Event created successfully!', event: newEvent });
 });
 
 // Update an existing event
-router.put('/events/:id', (req, res) => {
+router.put('/events/:id', validateUser, (req, res) => {
     const { id } = req.params;
-    const { name, description, date, location } = req.body;
+    const { name, description, date, location, userId } = req.body;
 
-    const eventIndex = events.findIndex(e => e.id === id);
+    const eventIndex = events.findIndex(e => e.id === id && e.userId === userId);
     if (eventIndex === -1) {
-        return res.status(404).json({ success: false, message: 'Event not found. Ensure the event ID is correct.' });
+        return res.status(404).json({ success: false, message: 'Event not found for this user.' });
     }
 
     events[eventIndex] = { ...events[eventIndex], name, description, date, location };
-    res.status(200).json({ success: true, message: 'Event updated successfully! Keep your community informed.', event: events[eventIndex] });
+    res.status(200).json({ success: true, message: 'Event updated successfully!', event: events[eventIndex] });
 });
 
 // Delete an event
 router.delete('/events/:id', (req, res) => {
     const { id } = req.params;
+    const { userId } = req.body;
 
-    const eventIndex = events.findIndex(e => e.id === id);
+    const eventIndex = events.findIndex(e => e.id === id && e.userId === userId);
     if (eventIndex === -1) {
-        return res.status(404).json({ success: false, message: 'Event not found. It may have already been removed.' });
+        return res.status(404).json({ success: false, message: 'Event not found for this user.' });
     }
 
     events.splice(eventIndex, 1);
-    res.status(200).json({ success: true, message: 'Event deleted successfully. Encourage more events for better community engagement!' });
+    res.status(200).json({ success: true, message: 'Event deleted successfully!' });
 });
 
 module.exports = router;
