@@ -1,7 +1,7 @@
 
 ---
 
-# **SkyConnect**  
+# **COMMUNEX**  
 ![SkyConnect Banner](https://via.placeholder.com/800x200.png?text=SkyConnect+-+Seamless+Community+Connections)
 
 ### **Description**  
