@@ -7,7 +7,7 @@ const cors = require('cors');
 const userRoutes = require('./routes/UserRoutes'); 
 const friendRoutes = require('./routes/FriendRoutes');
 const messageRoutes = require('./routes/MessagesRoutes');
-
+const skillroutes=require('./routes/SkillRoutes');
 const User = require('./schemas/User'); 
 const app = express();
 const server = http.createServer(app);
@@ -23,6 +23,7 @@ app.use(cors());
 app.use('/api', userRoutes);
 app.use('/fri', friendRoutes);
 app.use('/message', messageRoutes); 
+app.use('/skill',skillroutes);
 
 mongoose
   .connect('mongodb://localhost:27017/community', { useNewUrlParser: true, useUnifiedTopology: true })
