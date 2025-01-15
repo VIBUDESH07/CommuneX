@@ -1682,3 +1682,71 @@ header {
   font-size: 18px;
   color: #333;
 }
+/*  Optionpage    */
+/* General container styling */
+.option-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Title styling */
+.option-title {
+  font-size: 2.5rem;
+  color: #ff0000;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* Button container styling */
+.option-buttons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* Button general styling */
+.option-btn {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Specific button colors */
+.select-btn {
+  background-color: #6a85b6;
+  color: white;
+}
+
+.select-btn:hover {
+  background-color: #4e6c9a;
+  transform: scale(1.1);
+}
+
+.post-btn {
+  background-color: #f76b8a;
+  color: white;
+}
+
+.post-btn:hover {
+  background-color: #d84a6a;
+  transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .option-title {
+    font-size: 2rem;
+  }
+
+  .option-btn {
+    font-size: 1rem;
+    padding: 0.6rem 1.5rem;
+  }
+}

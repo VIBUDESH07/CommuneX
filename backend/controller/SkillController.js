@@ -20,8 +20,6 @@ exports.getSkillsByCommunityAndArea = async (req, res) => {
         const matchingUsers = await User.find({ skills: skill })
             .sort({ localCommunity: 1, "address": 1 }); // Sort by community and address
 
-        console.log(matchingUsers);
-
         // Step 3: Return the list of matching users
         if (matchingUsers.length > 0) {
             return res.status(200).json({

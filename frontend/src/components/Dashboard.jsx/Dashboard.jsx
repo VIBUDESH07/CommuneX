@@ -10,6 +10,7 @@ import Chat from '../Chatting/Chat';
 import FriendRequests from '../Chatting/Request';
 import Skill from '../Skills/Skill';
 import SkillDetails from '../Skills/SkillDetail'
+import Option from '../Skills/Option';
 
 
 const Dashboard = () => {
@@ -24,7 +25,10 @@ const Dashboard = () => {
             <Route path="/add" element={<AddFriend/>}/>
             <Route path="/chat/:friendId" element={<Chat />} />
             <Route path="/friend/request" element={<FriendRequests />} />
-            <Route path="/skills" element={<Skill />} />
+            <Route path="/skills" element={<Option/>} />
+            <Route path="/select-skill" element={<Skill/>}/>
+            <Route path="/post-skill" element={<Skill/>}/>
+
             <Route path="/skill-details" element={<SkillDetails/>} />
 
           </Routes>
