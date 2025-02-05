@@ -11,11 +11,11 @@ import FriendRequests from '../Chatting/Request';
 import Skill from '../Skills/Skill';
 import SkillDetails from '../Skills/SkillDetail'
 import Option from '../Skills/Option';
+import PostSkill from '../Skills/PostSkill';
 
 
 const Dashboard = () => {
   return (
-   
       <div className='dash-grid'>
         <Sidebar />
         <div className="dash-content">
@@ -26,10 +26,10 @@ const Dashboard = () => {
             <Route path="/chat/:friendId" element={<Chat />} />
             <Route path="/friend/request" element={<FriendRequests />} />
             <Route path="/skills" element={<Option/>} />
-            <Route path="/select-skill" element={<Skill/>}/>
-            <Route path="/post-skill" element={<Skill/>}/>
-
-            <Route path="/skill-details" element={<SkillDetails/>} />
+            <Route path="/selectskill" element={<Skill/>}/>
+            <Route path="/postskill" element={<Skill/>}/>
+            <Route path="/post-skill" element={<PostSkill/>}/>
+            <Route path="/skill-details" element={<SkillDetails/>}/>
 
           </Routes>
         </div>
