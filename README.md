@@ -9,14 +9,12 @@ Description
 
 Communex is a dynamic platform designed to foster seamless community interaction and IoT connectivity. It empowers users to engage with neighbors, share resources, and efficiently manage IoT devices for a smarter lifestyle.
 
-
 ---
 
 Features
 
 Community Engagement: Connect with your local community through posts, discussions, and events.
 
-IoT Device Management: Add, monitor, and control IoT devices remotely and securely.
 
 Real-Time Messaging: Communicate instantly with community members or support.
 
