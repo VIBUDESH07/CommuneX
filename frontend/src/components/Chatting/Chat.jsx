@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { io } from 'socket.io-client';
+import NavChat from './NavChat';
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);
@@ -108,8 +109,10 @@ const Chat = () => {
   };
 
   return (
+    <>
+    <NavChat/>
     <div className="chat-container">
-      <h2>Chat with {friendId}</h2>
+      <h2></h2>
       <div className="messages-container">
         {messages.map((message, index) => {
           const showDateHeader = isNewDate(
@@ -149,6 +152,7 @@ const Chat = () => {
         <button onClick={handleSendMessage}>Send</button>
       </div>
     </div>
+    </>
   );
 };
 
