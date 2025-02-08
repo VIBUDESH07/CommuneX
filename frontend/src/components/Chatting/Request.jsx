@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import NavChat from './NavChat';
 
 const FriendRequests = () => {
   const [requests, setRequests] = useState([]);
@@ -41,6 +42,8 @@ const FriendRequests = () => {
   };
 
   return (
+    <>
+    <NavChat/>
     <div className="friend-requests-page">
       <div className="friend-requests-card">
         <h2 className="friend-requests-title">Sent Friend Requests</h2>
@@ -75,6 +78,7 @@ const FriendRequests = () => {
         </ul>
       </div>
     </div>
+    </>
   );
 };
 
