@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import NavChat from './NavChat';
 
 const SelectFriend = () => {
   const [friends, setFriends] = useState([]);
@@ -40,6 +41,8 @@ const SelectFriend = () => {
   };
 
   return (
+    <>
+    <NavChat/>
     <div className="add-friend">
       <h2>My Friends</h2>
       {loading ? (
@@ -49,19 +52,20 @@ const SelectFriend = () => {
           {friends.map((friend) => (
             <li key={friend.id} className="friend-item">  {/* Use friend.id here */}
               <span>{friend.username}</span>
-              <button onClick={() => startChat(friend._id)}>Chat</button>  {/* Pass friend.id */}
+              <button onClick={() => startChat(friend._id)}>Message</button>  {/* Pass friend.id */}
             </li>
           ))}
         </ul>
       ) : (
         <p>No friends yet. Add some!</p>
       )}
-      <div className="add-friend-button">
+         <div className="add-friend-button">
         <button onClick={() => navigate('/dash/add', { state: { user } })}>
-          <FaPlus size={20} /> Add Friend
+          <FaPlus size={20} />
         </button>
       </div>
     </div>
+    </>
   );
 };
 
